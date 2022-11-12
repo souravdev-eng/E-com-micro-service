@@ -1,0 +1,61 @@
+.container {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  margin-top: 2.8rem;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 35%;
+  height: 54rem;
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
+    rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+}
+
+.title {
+  font-size: 2.2rem;
+  color: #2c4dcf;
+  margin: 2.6rem 0rem;
+}
+
+.text-input {
+  width: 70%;
+  height: 5.2rem;
+  margin: 1.2rem 0rem;
+  padding: 0rem 1rem;
+  border-radius: 0.5rem;
+  border: 0.5px solid rgba(50, 50, 93, 0.25);
+  font-size: 1.6rem;
+  color: #555;
+  transition: all 0.2s ease-in-out;
+}
+
+.text-input:focus {
+  border: 1px solid rgb(44, 77, 207, 0.6);
+  outline: none;
+  background-color: #e8f0fe;
+}
+
+.text-input:focus::placeholder {
+  color: rgb(44, 77, 207);
+}
+
+.button-wrapper {
+  margin-top: 2.2rem;
+}
+
+p {
+  font-size: 1.4rem;
+  margin: 2.4rem 0rem;
+}
+.link-blue {
+  color: rgb(44, 77, 207);
+  font-weight: 600;
+  cursor: pointer;
+}
+.link {
+  color: rgb(44, 77, 207);
+  text-decoration: none;
+}
