@@ -35,7 +35,33 @@ E-com is a commerce project where the main goal is to build a distributed and sc
 
 For this project, I am carefully chosen my tech stack:
 
-<a href="https://reactjs.org/" title="React"><img src="https://github.com/get-icon/geticon/raw/master/icons/react.svg" alt="React" width="35px" height="35px"></a> <a href="https://redux.js.org/" title="Redux"><img src="https://github.com/get-icon/geticon/raw/master/icons/redux.svg" alt="Redux" width="35px" height="35px"></a> <a href="https://nodejs.org/" title="Node.js"><img src="https://github.com/get-icon/geticon/raw/master/icons/nodejs-icon.svg" alt="Node.js" width="35px" height="35px"></a> <a href="https://www.mongodb.org/" title="MongoDB"><img src="https://github.com/get-icon/geticon/raw/master/icons/mongodb-icon.svg" alt="MongoDB" width="35px" height="35px"></a> <a href="https://www.postgresql.org/" title="PostgreSQL"><img src="https://github.com/get-icon/geticon/raw/master/icons/postgresql.svg" alt="PostgreSQL" width="35px" height="35px"></a> <a href="https://jestjs.io/" title="Jest"><img src="https://github.com/get-icon/geticon/raw/master/icons/jest.svg" alt="Jest" width="35px" height="35px"></a> <a href="https://sass-lang.com/" title="Sass"><img src="https://github.com/get-icon/geticon/raw/master/icons/sass.svg" alt="Sass" width="35px" height="35px"></a> <a href="https://www.typescriptlang.org/" title="Typescript"><img src="https://github.com/get-icon/geticon/raw/master/icons/typescript-icon.svg" alt="Typescript" width="35px" height="35px"></a> <a href="https://www.elastic.co/products/elasticsearch" title="Elasticsearch"><img src="https://github.com/get-icon/geticon/raw/master/icons/elasticsearch.svg" alt="Elasticsearch" width="35px" height="35px"></a> <a href="https://www.docker.com/" title="docker"><img src="https://github.com/get-icon/geticon/raw/master/icons/docker-icon.svg" alt="docker" width="35px" height="35px"></a> <a href="https://www.docker.com/" title="kubernetes"><img src="https://github.com/get-icon/geticon/blob/master/icons/kubernetes.svg" alt="kubernetes" width="35px" height="35px"></a> <a href="https://www.docker.com/" title="Google-cloud"><img src="https://github.com/get-icon/geticon/blob/master/icons/google-cloud-platform.svg" alt="kubernetes" width="35px" height="35px"></a> <a href="https://www.rabbitmq.com/" title="Rabbit MQ"><img src="https://cdn.freebiesupply.com/logos/large/2x/rabbitmq-logo-png-transparent.png" alt="rabbitmq" width="35px" height="35px"></a>
+<a href="https://reactjs.org/" title="React"><img src="https://github.com/get-icon/geticon/raw/master/icons/react.svg" alt="React" width="35px" height="35px"></a>
+
+<a href="https://redux.js.org/" title="Redux"><img src="https://github.com/get-icon/geticon/raw/master/icons/redux.svg" alt="Redux" width="35px" height="35px"></a>
+
+<a href="https://nodejs.org/" title="Node.js"><img src="https://github.com/get-icon/geticon/raw/master/icons/nodejs-icon.svg" alt="Node.js" width="35px" height="35px"></a>
+
+<a href="https://www.mongodb.org/" title="MongoDB"><img src="https://github.com/get-icon/geticon/raw/master/icons/mongodb-icon.svg" alt="MongoDB" width="35px" height="35px"></a>
+
+<a href="https://www.postgresql.org/" title="PostgreSQL"><img src="https://github.com/get-icon/geticon/raw/master/icons/postgresql.svg" alt="PostgreSQL" width="35px" height="35px"></a>
+
+<a href="https://jestjs.io/" title="Jest"><img src="https://github.com/get-icon/geticon/raw/master/icons/jest.svg" alt="Jest" width="35px" height="35px"></a>
+
+<a href="https://sass-lang.com/" title="Sass"><img src="https://github.com/get-icon/geticon/raw/master/icons/sass.svg" alt="Sass" width="35px" height="35px"></a>
+
+<a href="https://www.typescriptlang.org/" title="Typescript"><img src="https://github.com/get-icon/geticon/raw/master/icons/typescript-icon.svg" alt="Typescript" width="35px" height="35px"></a>
+
+<a href="https://www.elastic.co/products/elasticsearch" title="Elasticsearch"><img src="https://github.com/get-icon/geticon/raw/master/icons/elasticsearch.svg" alt="Elasticsearch" width="35px" height="35px"></a>
+
+<a href="https://www.docker.com/" title="docker"><img src="https://github.com/get-icon/geticon/raw/master/icons/docker-icon.svg" alt="docker" width="35px" height="35px"></a>
+
+<a href="https://kubernetes.io/" title="kubernetes"><img src="https://github.com/get-icon/geticon/blob/master/icons/kubernetes.svg" alt="kubernetes" width="35px" height="35px"></a>
+
+<a href="https://www.docker.com/" title="Google Cloud"><img src="https://github.com/get-icon/geticon/blob/master/icons/google-cloud-platform.svg" alt="Google-cloud" width="35px" height="35px"></a>
+
+<a href="https://www.rabbitmq.com/" title="Rabbit MQ"><img src="https://cdn.freebiesupply.com/logos/large/2x/rabbitmq-logo-png-transparent.png" alt="rabbitmq" width="35px" height="35px"></a>
+
+<a href="https://testing-library.com/" title="React Testing Library"><img src="https://testing-library.com/img/octopus-64x64.png" alt="react-testing-library" width="35px" height="35px"></a>
 
 ## Contact
 
