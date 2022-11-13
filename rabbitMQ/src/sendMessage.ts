@@ -6,7 +6,7 @@ export const sendMessage = async (req: Request, res: Response, next: NextFunctio
   try {
     res.send('SEND MESSAGE');
     const publisher = new ProductCreatedPublisher(connection);
-    publisher.publish({
+    await publisher.publish({
       id: '223',
       title: 'Test Product',
       price: 235,

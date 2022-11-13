@@ -13,11 +13,17 @@ export abstract class Publisher<T extends Event> {
   constructor(client: Connection) {
     this.client = client;
   }
-  publish(data: T['data']) {
-    this.client.createChannel().then((channel) => {
-      channel.assertQueue(this.subject, { durable: true });
-      channel.sendToQueue(this.subject, Buffer.from(JSON.stringify(data)));
-      console.log(`Event Published`);
+  publish(data: T['data']): Promise<void> {
+    return new Promise((resolve, reject) => {
+      this.client
+        .createChannel()
+        .then((channel) => {
+          channel.assertQueue(this.subject, { durable: true });
+          channel.sendToQueue(this.subject, Buffer.from(JSON.stringify(data)));
+          console.log(`Event published to subject: ${this.subject}`);
+          resolve();
+        })
+        .catch((error) => reject(error));
     });
   }
 }
