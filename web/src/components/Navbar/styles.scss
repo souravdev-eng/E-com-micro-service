@@ -1,3 +1,5 @@
+@import '../../sass/variables';
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -28,7 +30,7 @@
 
     &--link:hover,
     &--link:active {
-      color: #3b5bdb;
+      color: $Color__Blue-light;
     }
 
     .login-btn {
@@ -36,7 +38,7 @@
       height: 3.4rem;
       border-radius: 2.2rem;
       border: none;
-      background-color: #3b5bdb;
+      background-color: $Color__Blue-light;
       cursor: pointer;
       transition: all 0.3s;
       font-size: 1.6rem;
@@ -45,7 +47,7 @@
 
       &:hover,
       &:active {
-        background-color: #4263eb;
+        background-color: $Color__Blue-darkest;
       }
     }
   }
