@@ -4,6 +4,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import { newUser } from './controllers/newUser';
 import { errorHandler } from './middleware/errorHandler';
+import { loginUser } from './controllers/loginUser';
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(cors());
 
 // routes
 app.use(newUser);
+app.use(loginUser);
 
 // global error handlebar
 app.use(errorHandler);

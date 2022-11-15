@@ -18,7 +18,7 @@ router.post(
   signUpValidation,
   requestValidation,
   async (req: Request, res: Response, next: NextFunction) => {
-    const existsUser = await User.findBy({ email: req.body.email });
+    const existsUser = await User.findOneBy({ email: req.body.email });
 
     if (existsUser) {
       return next(new BadRequestError('This email is already in use! Please try another'));
