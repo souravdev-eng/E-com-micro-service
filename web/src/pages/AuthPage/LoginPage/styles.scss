@@ -1,3 +1,5 @@
+@import '../../../sass/variables';
+
 .container {
   display: flex;
   align-self: center;
@@ -15,7 +17,7 @@
 
     &__title {
       font-size: 2.2rem;
-      color: #2c4dcf;
+      color: $Color__Blue-darkest;
       margin: 2.6rem 0rem;
     }
 
@@ -31,13 +33,13 @@
       transition: all 0.2s ease-in-out;
 
       &:focus {
-        border: 1px solid rgb(44, 77, 207, 0.6);
+        border: 1px solid rgba(44, 77, 207, 0.6);
         outline: none;
         background-color: #e8f0fe;
       }
 
       &:focus::placeholder {
-        color: rgb(44, 77, 207);
+        color: $Color__Blue-darkest;
       }
     }
 
@@ -50,11 +52,11 @@
       margin: 2.4rem 0rem;
 
       &--text {
-        color: rgb(44, 77, 207);
+        color: $Color__Blue-darkest;
         text-decoration: none;
 
         &--blue {
-          color: rgb(44, 77, 207);
+          color: $Color__Blue-darkest;
           font-weight: 600;
           cursor: pointer;
         }

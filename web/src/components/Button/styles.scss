@@ -1,7 +1,9 @@
+@import '../../sass/variables';
+
 .button {
   appearance: button;
-  background-color: #1652f0;
-  border: 1px solid #1652f0;
+  background-color: $Color__Blue-light;
+  border: 1px solid $Color__Blue-light;
   border-radius: 4px;
   box-sizing: border-box;
   color: #ffffff;
@@ -25,12 +27,12 @@
   }
 
   &:hover {
-    background-color: #0a46e4;
-    border-color: #0a46e4;
+    background-color: $Color__Blue-dark;
+    border-color: $Color__Blue-dark;
   }
 
   &:active {
-    background-color: #0039d7;
-    border-color: #0039d7;
+    background-color: $Color__Blue-dark;
+    border-color: $Color__Blue-dark;
   }
 }
