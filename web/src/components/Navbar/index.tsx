@@ -35,12 +35,12 @@ const Navbar = () => {
       <Link to={'/'}>
         <img className='logo' src='/img/logo.png' alt='logo' />
       </Link>
-      <nav className='main-nav'>
-        <ul className='main-nav__list'>
+      <nav className='nav'>
+        <ul className='nav__list'>
           {DATA.map((el, idx) => {
             return (
               <li key={idx}>
-                <Link to={`/shop${el.path}`} className='main-nav__list_link'>
+                <Link to={`/shop${el.path}`} className='nav__list--link'>
                   {el.name}
                 </Link>
               </li>

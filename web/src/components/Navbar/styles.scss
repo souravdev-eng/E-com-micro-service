@@ -4,12 +4,13 @@
   background-color: #fff;
   height: 9.6rem;
   padding: 2rem 2.8rem;
+  align-items: center;
 
   .logo {
     height: 3.8rem;
   }
 
-  .main-nav__list {
+  .nav__list {
     display: flex;
     list-style: none;
     align-items: center;
@@ -18,15 +19,15 @@
     font-weight: 600;
     cursor: pointer;
 
-    .main-nav__list_link:visited,
-    .main-nav__list_link:link {
+    &--link:visited,
+    &--link:link {
       text-decoration: none;
       color: #555;
       transition: all 0.3s;
     }
 
-    .main-nav__list_link:hover,
-    .main-nav__list_link:active {
+    &--link:hover,
+    &--link:active {
       color: #3b5bdb;
     }
 
@@ -41,11 +42,11 @@
       font-size: 1.6rem;
       font-weight: 500;
       color: #fff;
-    }
 
-    .login-btn:hover,
-    .login-btn:active {
-      background-color: #4263eb;
+      &:hover,
+      &:active {
+        background-color: #4263eb;
+      }
     }
   }
 }
