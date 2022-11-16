@@ -7,12 +7,6 @@
 1800 +  Big Screens
 */
 
-@mixin respond-phone {
-  @media (max-width: 600px) {
-    @content;
-  }
-}
-
 /* $breakpoint argument choices
 - phone
 - tab-port
@@ -22,25 +16,25 @@
 
 @mixin respond($breakpoint) {
   @if $breakpoint == phone {
-    @media screen and (max-width: 600px) and (min-width: 0px) {
+    @media screen and (max-width: 37.5rem) and (min-width: 0px) {
       @content;
     }
   }
 
   @if $breakpoint == tab-port {
-    @media screen and (max-width: 900px) and (min-width: 600px) {
+    @media screen and (max-width: 56.25rem) and (min-width: 37.5rem) {
       @content;
     }
   }
 
   @if $breakpoint == tab-land {
-    @media screen and (max-width: 1200px) and (min-width: 900px) {
+    @media screen and (max-width: 75rem) and (min-width: 56.25rem) {
       @content;
     }
   }
 
   @if $breakpoint == big-desktop {
-    @media (min-width: 1960px) {
+    @media (min-width: 11237.5rem) {
       @content;
     }
   }

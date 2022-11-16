@@ -1,25 +1,64 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Form, Formik, Field, FormikHelpers, ErrorMessage } from 'formik';
 import Button from '../../../components/Button';
 import './styles.scss';
+import { logInSchema } from '../../../validation/authFormValidation';
+
+interface Values {
+  email: string;
+  password: string;
+}
 
 const LoginPage = () => {
   return (
     <div className='container'>
-      <form className='form'>
-        <h3 className='form__title'>Login with email & password</h3>
-        <input placeholder='Enter your email' type='email' className='form__text-input' />
-        <input placeholder='Enter your Password' type='password' className='form__text-input' />
-        <div className='form__button-wrapper'>
-          <Button title='Login' />
-        </div>
-        <p className='form__link'>
-          Don't have an account?{' '}
-          <Link className='form__link--text' to='/auth/signup'>
-            <span className='form__link--text--blue'>Click to signup</span>
-          </Link>
-        </p>
-      </form>
+      <Formik
+        initialValues={{
+          email: '',
+          password: '',
+        }}
+        onSubmit={(values: Values, { setSubmitting }: FormikHelpers<Values>) => {
+          console.log(values);
+        }}
+        validationSchema={logInSchema}>
+        <>
+          <Form className='form'>
+            <h3 className='form__title'>Login with email & password</h3>
+            {/* <div> */}
+            <Field
+              id='email'
+              name='email'
+              placeholder='Enter your email'
+              type='email'
+              className='form__text-input'
+            />
+            <ErrorMessage name='email'>
+              {(msg) => <div className='form__error-msg'>{msg}</div>}
+            </ErrorMessage>
+            {/* </div> */}
+            <Field
+              id='password'
+              name='password'
+              placeholder='Enter your password'
+              type='password'
+              className='form__text-input'
+            />
+            <ErrorMessage name='password'>
+              {(msg) => <div className='form__error-msg'>{msg}</div>}
+            </ErrorMessage>
+            <div className='form__button-wrapper'>
+              <Button title='Login' />
+            </div>
+            <p className='form__link'>
+              Don't have an account?{' '}
+              <Link className='form__link--text' to='/auth/signup'>
+                <span className='form__link--text--blue'>Click to signup</span>
+              </Link>
+            </p>
+          </Form>
+        </>
+      </Formik>
     </div>
   );
 };
