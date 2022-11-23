@@ -39,7 +39,11 @@ router.post(
       jwt: token,
     };
 
-    res.status(201).send(user);
+    res.status(201).send({
+      id: user.id,
+      name: user.name,
+      email: user.email,
+    });
   }
 );
 

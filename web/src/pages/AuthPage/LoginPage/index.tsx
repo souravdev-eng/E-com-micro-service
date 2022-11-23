@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Form, Formik, Field, FormikHelpers, ErrorMessage } from 'formik';
+import { logInSchema } from '../../../validation/authFormValidation';
 import Button from '../../../components/Button';
 import './styles.scss';
-import { logInSchema } from '../../../validation/authFormValidation';
 
 interface Values {
   email: string;
@@ -11,6 +11,10 @@ interface Values {
 }
 
 const LoginPage = () => {
+  const handleSubmit = (email: string, password: string) => {
+    console.log(email, password);
+  };
+
   return (
     <div className='container'>
       <Formik
@@ -18,8 +22,9 @@ const LoginPage = () => {
           email: '',
           password: '',
         }}
-        onSubmit={(values: Values, { setSubmitting }: FormikHelpers<Values>) => {
-          console.log(values);
+        onSubmit={({ email, password }: Values, { resetForm }: FormikHelpers<Values>) => {
+          handleSubmit(email, password);
+          resetForm();
         }}
         validationSchema={logInSchema}>
         <>
