@@ -8,6 +8,7 @@ import { errorHandler } from './middleware/errorHandler';
 import { loginUser } from './controllers/loginUser';
 import { newUser } from './controllers/newUser';
 import { currentUserRoute } from './controllers/currentUser';
+import { signOutRoute } from './controllers/signOut';
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.use(
 // routes
 app.use(newUser);
 app.use(loginUser);
+app.use(signOutRoute);
 app.use(currentUserRoute);
 
 // global error handlebar
