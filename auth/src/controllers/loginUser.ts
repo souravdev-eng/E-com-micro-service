@@ -34,7 +34,12 @@ router.post(
     }
 
     const token = signInToken(user.id, user.email);
-    res.status(200).json({ token, user });
+    // store the token in the session
+    req.session = {
+      jwt: token,
+    };
+
+    res.status(200).send(user);
   }
 );
 
