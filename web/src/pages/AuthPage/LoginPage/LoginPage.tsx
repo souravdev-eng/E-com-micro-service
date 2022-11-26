@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom';
 import { Form, Formik, Field, FormikHelpers, ErrorMessage } from 'formik';
 import { logInSchema } from '../../../validation/authFormValidation';
 import Button from '../../../components/Button';
+<<<<<<< HEAD:web/src/pages/AuthPage/LoginPage/index.tsx
 import './styles.scss';
+=======
+import './login.style.scss';
+>>>>>>> f7d32683f5fcb36fb644163ea61bc196c2986aa4:web/src/pages/AuthPage/LoginPage/LoginPage.tsx
 
 interface Values {
   email: string;
@@ -30,7 +34,7 @@ const LoginPage = () => {
         <>
           <Form className='form'>
             <h3 className='form__title'>Login with email & password</h3>
-            {/* <div> */}
+
             <Field
               id='email'
               name='email'
@@ -38,10 +42,10 @@ const LoginPage = () => {
               type='email'
               className='form__text-input'
             />
-            <ErrorMessage name='email'>
+            <ErrorMessage name='email' data-testid='emailError'>
               {(msg) => <div className='form__error-msg'>{msg}</div>}
             </ErrorMessage>
-            {/* </div> */}
+
             <Field
               id='password'
               name='password'
@@ -49,11 +53,14 @@ const LoginPage = () => {
               type='password'
               className='form__text-input'
             />
-            <ErrorMessage name='password'>
-              {(msg) => <div className='form__error-msg'>{msg}</div>}
+            <ErrorMessage name='password' data-testid='passwordError'>
+              {(msg) => {
+                console.log(msg);
+                return <div className='form__error-msg'>{msg}</div>;
+              }}
             </ErrorMessage>
             <div className='form__button-wrapper'>
-              <Button title='Login' />
+              <Button title='Login' type='submit' />
             </div>
             <p className='form__link'>
               Don't have an account?{' '}
