@@ -1,10 +1,16 @@
 import React from 'react';
+import ProductData from '../../data/product.data.json';
+import ProductList from '../../components/ProductList';
+import './home.style.scss';
 
 const HomePage = () => {
   return (
-    <div>
-      <p>HomePage</p>
-    </div>
+    <>
+      <div className='homeContainer'>
+        <ProductList title='Top Product' data={ProductData} />
+        <ProductList title='Best Seller' data={ProductData} />
+      </div>
+    </>
   );
 };
 

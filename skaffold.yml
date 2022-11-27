@@ -33,3 +33,5 @@ build:
             dest: .
           - src: 'src/**/*scss'
             dest: .
+          - src: 'src/**/*json'
+            dest: .
