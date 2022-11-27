@@ -22,22 +22,22 @@ spec:
             - name: POSTGRES_USER
               valueFrom:
                 secretKeyRef:
-                  name: postgres-credential
+                  name: secret-credential
                   key: POSTGRES_USER
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: postgres-credential
+                  name: secret-credential
                   key: POSTGRES_PASSWORD
             - name: POSTGRES_DB
               valueFrom:
                 configMapKeyRef:
-                  name: postgres-auth-config
+                  name: app-config
                   key: POSTGRES_DB
             - name: POSTGRES_HOST
               valueFrom:
                 configMapKeyRef:
-                  name: postgres-auth-config
+                  name: app-config
                   key: POSTGRES_HOST
           volumeMounts:
             - mountPath: /var/lib/postgresql/data
