@@ -1,6 +1,6 @@
 import React from 'react';
 import ProductData from '../../data/product.data.json';
-import ProductList from '../../components/ProductList';
+import { ProductList } from '../../components';
 import './home.style.scss';
 
 const HomePage = () => {

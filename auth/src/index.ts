@@ -36,7 +36,7 @@ const start = () => {
 
     AppDataSource.initialize()
       .then(() => {
-        console.log(`Auth Postgres Server Started`);
+        console.log(`Auth Postgres Server Started...`);
       })
       .catch((err) => {
         console.error(err);

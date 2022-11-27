@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Form, Formik, Field, FormikHelpers, ErrorMessage } from 'formik';
-import { logInSchema } from '../../../validation/authFormValidation';
+import { logInSchema } from '../../../validation';
 import Button from '../../../components/Button';
 import './login.style.scss';
 

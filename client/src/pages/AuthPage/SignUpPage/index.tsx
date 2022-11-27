@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Form, Formik, Field, FormikHelpers, ErrorMessage } from 'formik';
-import { signupValidationSchema } from '../../../validation/authFormValidation';
-import Button from '../../../components/Button';
+import { signupValidationSchema } from '../../../validation';
+import { Button } from '../../../components';
 import './styles.scss';
 
 interface Values {
@@ -28,7 +28,7 @@ const SignUpPage = () => {
         validationSchema={signupValidationSchema}>
         <>
           <Form className='form'>
-            <h3 className='form__title'>Login with email & password</h3>
+            <h3 className='form__title'>Create new account</h3>
             <Field
               id='name'
               name='name'
