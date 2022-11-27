@@ -1,0 +1,52 @@
+@import '../../sass/variables';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 2.8rem;
+  align-items: center;
+
+  .logo {
+    height: 3.8rem;
+  }
+
+  .nav__list {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 6.4rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    cursor: pointer;
+
+    &--link:visited,
+    &--link:link {
+      text-decoration: none;
+      color: #555;
+      transition: all 0.3s;
+    }
+
+    &--link:hover,
+    &--link:active {
+      color: $Color__Blue-light;
+    }
+
+    .login-btn {
+      width: 12rem;
+      height: 3.4rem;
+      border-radius: 2.2rem;
+      border: none;
+      background-color: $Color__Blue-light;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: #fff;
+
+      &:hover,
+      &:active {
+        background-color: $Color__Blue-darkest;
+      }
+    }
+  }
+}
