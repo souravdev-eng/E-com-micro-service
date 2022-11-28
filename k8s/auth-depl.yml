@@ -42,12 +42,6 @@ spec:
                   name: app-config
                   key: POSTGRES_DB
 
-            - name: POSTGRES_TEST_HOST
-              valueFrom:
-                configMapKeyRef:
-                  name: app-config
-                  key: POSTGRES_TEST_HOST
-
             - name: POSTGRES_HOST
               valueFrom:
                 configMapKeyRef:
