@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+  labels:
+    app: postgres
+data:
+  POSTGRES_DB: auth
+  POSTGRES_HOST: auth-postgres-srv

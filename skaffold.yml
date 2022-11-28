@@ -19,13 +19,19 @@ build:
         manual:
           - src: 'src/**/*ts'
             dest: .
-    - image: souravdeveloper/ecom-web
-      context: web
+    - image: souravdeveloper/ecom-client
+      context: client
       docker:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: '/*ts'
+          - src: 'src/**/*ts'
             dest: .
-          - src: '/*css'
+          - src: 'src/**/*tsx'
+            dest: .
+          - src: 'src/**/*css'
+            dest: .
+          - src: 'src/**/*scss'
+            dest: .
+          - src: 'src/**/*json'
             dest: .

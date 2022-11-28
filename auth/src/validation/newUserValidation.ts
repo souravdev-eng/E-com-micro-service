@@ -12,3 +12,8 @@ export const signUpValidation = [
     return true;
   }),
 ];
+
+export const signInValidation = [
+  body('email').isEmail().withMessage('Email is required'),
+  body('password').not().isEmpty().withMessage('Password is required'),
+];

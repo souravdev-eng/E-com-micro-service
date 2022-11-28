@@ -1,6 +1,7 @@
-import jwt from 'jsonwebtoken';
 import { Router, Request, Response, NextFunction } from 'express';
-import { signUpValidation } from '../validation/newUserValidation';
+import jwt from 'jsonwebtoken';
+import bcrypt from 'bcryptjs';
+import { signInValidation } from '../validation/newUserValidation';
 import { requestValidation } from '../middleware/requestValidation';
 import { BadRequestError } from '../errors/badRequestError';
 import { User } from '../entity/User';
@@ -14,32 +15,31 @@ const signInToken = (id: string, email: string) => {
 const router = Router();
 
 router.post(
-  '/api/users/signup',
-  signUpValidation,
+  '/api/users/login',
+  signInValidation,
   requestValidation,
   async (req: Request, res: Response, next: NextFunction) => {
-    const existsUser = await User.findOneBy({ email: req.body.email });
+    const { email, password } = req.body;
 
-    if (existsUser) {
-      return next(new BadRequestError('This email is already in use! Please try another'));
+    const user = await User.findOneBy({ email });
+
+    if (!user) {
+      return next(new BadRequestError('Invalid email or Password. Please try again.'));
     }
 
-    const user = User.create({
-      name: req.body.name,
-      email: req.body.email,
-      password: req.body.password,
-      passwordConform: req.body.passwordConform,
-    });
+    const passwordMatch = await bcrypt.compare(password, user.password);
 
-    await user.save();
+    if (!passwordMatch) {
+      return next(new BadRequestError('Invalid email or Password. Please try again.'));
+    }
 
     const token = signInToken(user.id, user.email);
-    // store the token in the session
+    //* store the token in the session
     req.session = {
       jwt: token,
     };
 
-    res.status(201).send({
+    res.status(200).send({
       id: user.id,
       name: user.name,
       email: user.email,
@@ -47,4 +47,4 @@ router.post(
   }
 );
 
-export { router as newUser };
+export { router as loginUser };

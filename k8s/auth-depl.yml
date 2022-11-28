@@ -21,27 +21,37 @@ spec:
             - name: JWT_KEY
               valueFrom:
                 secretKeyRef:
-                  name: jwt-secret
+                  name: secret-credential
                   key: JWT_KEY
+
             - name: POSTGRES_USER
               valueFrom:
                 secretKeyRef:
-                  name: postgres-credential
+                  name: secret-credential
                   key: POSTGRES_USER
+
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: postgres-credential
+                  name: secret-credential
                   key: POSTGRES_PASSWORD
+
             - name: POSTGRES_DB
               valueFrom:
                 configMapKeyRef:
-                  name: postgres-auth-config
+                  name: app-config
                   key: POSTGRES_DB
+
+            - name: POSTGRES_TEST_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: POSTGRES_TEST_HOST
+
             - name: POSTGRES_HOST
               valueFrom:
                 configMapKeyRef:
-                  name: postgres-auth-config
+                  name: app-config
                   key: POSTGRES_HOST
 ---
 apiVersion: v1

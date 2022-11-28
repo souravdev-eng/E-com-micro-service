@@ -19,6 +19,10 @@ const start = () => {
       throw new Error('Postgres is host is not found');
     }
 
+    if (!process.env.JWT_KEY) {
+      throw new Error('JWT is not found');
+    }
+
     const AppDataSource = new DataSource({
       type: 'postgres',
       port: 5432,
@@ -32,7 +36,7 @@ const start = () => {
 
     AppDataSource.initialize()
       .then(() => {
-        console.log(`Auth Postgres Server Started`);
+        console.log(`Auth Postgres Server Started...`);
       })
       .catch((err) => {
         console.error(err);
