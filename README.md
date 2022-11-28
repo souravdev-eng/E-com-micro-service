@@ -6,7 +6,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/souravdev-eng/E-com-micro-service">
-    <img src="./web/public/img/logo.png" alt="Logo" width="120" height="40">
+    <img src="./client/public/img/logo.png" alt="Logo" width="120" height="40">
   </a>
 
   <h3 align="center">Ecom | E-Commerce app</h3>
