@@ -1,47 +1,65 @@
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, act, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import LoginPage from '..';
 import Button from '../../../../components/Button';
 
-// const TestLoginPage = () => {
-//   return (
-//     <MemoryRouter>
-//       <LoginPage />
-//     </MemoryRouter>
-//   );
-// };
+const typeIntoFrom = async ({ email, password }: { email?: string; password?: string }) => {
+  const emailInputElement = (await screen.findByPlaceholderText(
+    /Enter your email/i
+  )) as HTMLInputElement;
+  const passwordInputElement = (await screen.findByPlaceholderText(
+    /Enter your password/i
+  )) as HTMLInputElement;
 
-// test('Should have every text input filled initial value to be a empty string', () => {
-//   render(<TestLoginPage />);
+  if (email) {
+    await waitFor(() =>
+      act(async () => {
+        await userEvent.type(emailInputElement, email);
+      })
+    );
+  }
 
-//   const emailInputElement = screen.getByRole('textbox') as HTMLInputElement;
-//   const passwordInputElement = screen.getByPlaceholderText(
-//     /Enter your password/i
-//   ) as HTMLInputElement;
+  if (password) {
+    await waitFor(() =>
+      act(async () => {
+        await userEvent.type(passwordInputElement, password);
+      })
+    );
+  }
 
-//   expect(emailInputElement.value).toBe('');
-//   expect(passwordInputElement.value).toBe('');
-// });
+  return {
+    emailInputElement,
+    passwordInputElement,
+  };
+};
 
-// test('Should show error message if user type invalid email address', async () => {
-//   render(<TestLoginPage />);
-//   const handleSubmit = jest.fn();
+beforeEach(() => {
+  render(
+    <MemoryRouter>
+      <LoginPage />
+    </MemoryRouter>
+  );
+});
 
-//   const emailErrorElement = screen.queryAllByText(/Oops! Email is invalid/i);
-//   const passwordInputElement = screen.getByPlaceholderText(
-//     /Enter your password/i
-//   ) as HTMLInputElement;
+describe('Login Screen', () => {
+  test('Should have every text input filled initial value to be a empty string', () => {
+    const emailInputElement = screen.getByRole('textbox') as HTMLInputElement;
+    const passwordInputElement = screen.getByPlaceholderText(
+      /Enter your password/i
+    ) as HTMLInputElement;
+    expect(emailInputElement.value).toBe('');
+    expect(passwordInputElement.value).toBe('');
+  });
 
-//   const emailInputElement = screen.getByRole('textbox') as HTMLInputElement;
-//   const submitElement = await screen.findByRole('button');
-//   expect(emailErrorElement).not.toBeDefined();
+  test('Should user type email address', async () => {
+    const { emailInputElement } = await typeIntoFrom({ email: 'test@gmail.com' });
+    await waitFor(() => expect(emailInputElement.value).toBe('test@gmail.com'));
+  });
 
-//   userEvent.type(emailInputElement, 'testgmail.com');
-//   userEvent.type(passwordInputElement, '123456');
-//   userEvent.click(submitElement);
-
-//   const emailAgainErrorElement = screen.queryAllByText(/Oops! Email is invalid/i);
-//   expect(emailAgainErrorElement).toBeInTheDocument();
-// });
+  test('Should user type password', async () => {
+    const { passwordInputElement } = await typeIntoFrom({ password: '123456' });
+    await waitFor(() => expect(passwordInputElement.value).toBe('123456'));
+  });
+});
