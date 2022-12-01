@@ -1,8 +1,8 @@
 import jwt from 'jsonwebtoken';
 import { Router, Request, Response, NextFunction } from 'express';
+import { requestValidation, BadRequestError } from '@ecom-micro/common';
 import { signUpValidation } from '../validation/newUserValidation';
-import { requestValidation } from '../middleware/requestValidation';
-import { BadRequestError } from '../errors/badRequestError';
+
 import { User } from '../entity/User';
 
 const signInToken = (id: string, email: string) => {
