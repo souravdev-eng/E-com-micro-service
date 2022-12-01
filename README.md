@@ -8,12 +8,14 @@
   <a href="https://github.com/souravdev-eng/E-com-micro-service">
     <img src="./client/public/img/logo.png" alt="Logo" width="120" height="40">
   </a>
-
-  <h3 align="center">Ecomm | E-Commerce app</h3>
-
+  <h3 align="center">Ecom | E-Commerce app</h3>
   <p align="center">
     E-com is an micro service based Full-Stack application
   </p>
+</div>
+
+<div>
+ <img src="./client/public/img/demo.png" alt="Logo" width="100%" height="32%">
 </div>
 
 <!-- ABOUT THE PROJECT -->

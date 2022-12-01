@@ -1,5 +1,5 @@
+import { FC } from 'react';
 import { Rating } from '@mui/material';
-import React, { FC } from 'react';
 import './product-card.style.scss';
 
 interface CardProps {
@@ -13,7 +13,7 @@ interface CardProps {
 const ProductCard: FC<CardProps> = ({ name, price, imageURL, rating = 4.4 }) => {
   return (
     <div className='card'>
-      <img className='card__image' src={imageURL} alt='product-image' />
+      <img className='card__image' src={imageURL} alt={name} />
       <h3 className='card__title'>{name}</h3>
       <div className='card__info'>
         <span className='card__info__price'>${price}</span>

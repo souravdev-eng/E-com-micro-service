@@ -1,8 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Form, Formik, Field, FormikHelpers, ErrorMessage } from 'formik';
+import { useEffect } from 'react';
+import { Link, redirect } from 'react-router-dom';
+import { Form, Formik, Field, ErrorMessage } from 'formik';
 import { signupValidationSchema } from '../../../validation';
-import { Button } from '../../../components';
+import { Button, Loader } from '../../../components';
+import { useSignUpPageHook } from './hooks';
 import './styles.scss';
 
 interface Values {
@@ -13,8 +14,23 @@ interface Values {
 }
 
 const SignUpPage = () => {
+  const { handleSignUp, error, loading, navigate, user } = useSignUpPageHook();
+
+  useEffect(() => {
+    if (user !== null && error === null) {
+      navigate('/');
+    }
+  }, [user, error, navigate]);
+
+  useEffect(() => {
+    if (user !== null && user.id) {
+      redirect('/');
+    }
+  }, [user, redirect]);
+
   return (
     <div className='container'>
+      {loading && <Loader />}
       <Formik
         initialValues={{
           name: '',
@@ -22,13 +38,19 @@ const SignUpPage = () => {
           password: '',
           passwordConform: '',
         }}
-        onSubmit={(values: Values, { setSubmitting }: FormikHelpers<Values>) => {
-          console.log(values);
+        onSubmit={(values: Values) => {
+          handleSignUp(values);
         }}
         validationSchema={signupValidationSchema}>
         <>
           <Form className='form'>
             <h3 className='form__title'>Create new account</h3>
+            {error &&
+              error.map((el: any, idx: number) => (
+                <div className='form__error-msg' key={idx}>
+                  {el.message}
+                </div>
+              ))}
             <Field
               id='name'
               name='name'

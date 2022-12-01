@@ -1,36 +1,48 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Form, Formik, Field, FormikHelpers, ErrorMessage } from 'formik';
+import { useEffect } from 'react';
+import { Link, redirect } from 'react-router-dom';
+import { Form, Formik, Field, ErrorMessage } from 'formik';
+import { Button, Loader } from '../../../components';
 import { logInSchema } from '../../../validation';
-import Button from '../../../components/Button';
+import { useLoginPageHook } from './hooks';
 import './login.style.scss';
 
-interface Values {
-  email: string;
-  password: string;
-}
-
 const LoginPage = () => {
-  const handleSubmit = (email: string, password: string) => {
-    console.log(email, password);
-  };
+  const { handleLogin, error, loading, user, navigate } = useLoginPageHook();
+
+  useEffect(() => {
+    if (user !== null && error === null) {
+      navigate('/');
+    }
+  }, [user, error, navigate]);
+
+  useEffect(() => {
+    if (user !== null && user.id) {
+      redirect('/');
+    }
+  }, [user, redirect]);
 
   return (
     <div className='container'>
+      {loading && <Loader />}
       <Formik
         initialValues={{
           email: '',
           password: '',
         }}
-        onSubmit={({ email, password }: Values, { resetForm }: FormikHelpers<Values>) => {
-          handleSubmit(email, password);
+        onSubmit={({ email, password }, { resetForm }) => {
+          handleLogin(email, password);
           resetForm();
         }}
         validationSchema={logInSchema}>
         <>
           <Form className='form'>
             <h3 className='form__title'>Login with email & password</h3>
-
+            {error &&
+              error.map((el: any, idx: number) => (
+                <div className='form__error-msg' key={idx}>
+                  {el.message}
+                </div>
+              ))}
             <Field
               id='email'
               name='email'
