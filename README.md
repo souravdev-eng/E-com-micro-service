@@ -9,7 +9,6 @@
     <img src="./client/public/img/logo.png" alt="Logo" width="120" height="40">
   </a>
   <h3 align="center">Ecom | E-Commerce app</h3>
-
   <p align="center">
     E-com is an micro service based Full-Stack application
   </p>
