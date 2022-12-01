@@ -1,9 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './navbar.style.scss';
+import { useAppSelector } from '../../hooks/useAppRedux';
 import { NAV_DATA } from '../../data/navdata';
+import ProfileTab from '../ProfileTab';
+import './navbar.style.scss';
 
 const Navbar = () => {
+  const { user } = useAppSelector((state) => state.users);
+
   return (
     <header className='header'>
       <Link to={'/'}>
@@ -20,11 +24,17 @@ const Navbar = () => {
               </li>
             );
           })}
-          <li>
-            <Link to={'/auth/login'}>
-              <button className='login-btn'>Login</button>
-            </Link>
-          </li>
+          {user === null ? (
+            <li>
+              <Link to={'/auth/login'}>
+                <button className='login-btn'>Login</button>
+              </Link>
+            </li>
+          ) : (
+            <li>
+              <ProfileTab />
+            </li>
+          )}
         </ul>
       </nav>
     </header>
