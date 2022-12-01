@@ -1,8 +1,7 @@
 import { useEffect } from 'react';
 import { Link, redirect } from 'react-router-dom';
 import { Form, Formik, Field, ErrorMessage } from 'formik';
-import Loader from '../../../components/Loader';
-import Button from '../../../components/Button';
+import { Button, Loader } from '../../../components';
 import { logInSchema } from '../../../validation';
 import { useLoginPageHook } from './hooks';
 import './login.style.scss';

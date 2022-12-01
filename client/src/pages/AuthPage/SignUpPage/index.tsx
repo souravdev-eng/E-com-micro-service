@@ -2,10 +2,9 @@ import { useEffect } from 'react';
 import { Link, redirect } from 'react-router-dom';
 import { Form, Formik, Field, ErrorMessage } from 'formik';
 import { signupValidationSchema } from '../../../validation';
-import { Button } from '../../../components';
-import './styles.scss';
-import Loader from '../../../components/Loader';
+import { Button, Loader } from '../../../components';
 import { useSignUpPageHook } from './hooks';
+import './styles.scss';
 
 interface Values {
   name: string;
