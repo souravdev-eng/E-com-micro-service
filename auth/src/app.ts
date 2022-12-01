@@ -1,11 +1,10 @@
 import 'express-async-errors';
-import cookieSession from 'cookie-session';
 import express, { NextFunction, Request, Response } from 'express';
+import cookieSession from 'cookie-session';
+import { NotFoundError, errorHandler } from '@ecom-micro/common';
 import cors from 'cors';
 
 import { currentUserRoute } from './controllers/currentUser';
-import { errorHandler } from './middleware/errorHandler';
-import { NotFoundError } from './errors/notFoundError';
 import { signOutRoute } from './controllers/signOut';
 import { loginUser } from './controllers/loginUser';
 import { newUser } from './controllers/newUser';
@@ -20,7 +19,7 @@ app.use(cors());
 app.use(
   cookieSession({
     signed: false,
-    secure: true,
+    secure: process.env.NODE_ENV !== 'test',
   })
 );
 
