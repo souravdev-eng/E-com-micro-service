@@ -1,39 +1,39 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: auth-depl
+  name: product-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: auth
+      app: product
   template:
     metadata:
       labels:
-        app: auth
+        app: product
     spec:
       containers:
-        - name: auth
-          image: souravdeveloper/ecom-auth
+        - name: product
+          image: souravdeveloper/ecom-product
           envFrom:
             - secretRef:
                 name: secret-credential
             - configMapRef:
                 name: app-config
           env:
-            - name: JWT_EXPIRE_IN
-              value: 90d
+            - name: DB_URL
+              value: mongodb+srv://sourav:<password>@cluster0.ut3zhsv.mongodb.net/product?retryWrites=true&w=majority
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: auth-srv
+  name: product-srv
 spec:
   selector:
-    app: auth
+    app: product
   type: ClusterIP
   ports:
-    - name: auth
-      targetPort: 3000
-      port: 3000
+    - name: product
+      targetPort: 4000
+      port: 4000
       protocol: TCP
