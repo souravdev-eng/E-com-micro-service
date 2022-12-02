@@ -1,4 +1,4 @@
-import { Connection, createConnection, getConnection } from 'typeorm';
+import { createConnection, getConnection } from 'typeorm';
 import { User } from '../entity/User';
 
 const connection = {
@@ -23,14 +23,14 @@ const connection = {
   },
 
   async clear() {
-    const entities = getConnection().entityMetadatas;
+    const connection = getConnection();
+    const entities = connection.entityMetadatas;
 
     const entityDeletionPromises = entities.map((entity) => async () => {
-      const repository = pg.getRepository(entity.name);
+      const repository = connection.getRepository(entity.name);
       await repository.query(`DELETE FROM ${entity.tableName}`);
     });
     await Promise.all(entityDeletionPromises);
   },
 };
-
 export default connection;
