@@ -11,7 +11,12 @@ var Publisher = /** @class */ (function () {
             _this.client
                 .createChannel()
                 .then(function (channel) {
-                channel.assertQueue(_this.subject, { durable: true, autoDelete: true });
+                channel.assertQueue(_this.subject, {
+                    durable: false,
+                    autoDelete: true,
+                    messageTtl: 5 * 60 * 1000,
+                    expires: 2 * 3600 * 1000,
+                });
                 channel.sendToQueue(_this.subject, Buffer.from(JSON.stringify(data)));
                 console.log("Event published to subject: ".concat(_this.subject));
                 resolve();
