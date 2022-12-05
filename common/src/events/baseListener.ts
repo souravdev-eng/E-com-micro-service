@@ -18,13 +18,19 @@ export abstract class Listener<T extends Event> {
   async listen() {
     this.client.createChannel().then((channel) => {
       channel.assertQueue(this.subject);
-      channel.consume(this.subject, (message: Message | null) => {
-        if (message !== null) {
-          console.log(`Message Received to: ${this.subject}`);
-          const parseMsg = this.parseMessage(message);
-          this.onMessage(parseMsg, message, channel);
+      channel.consume(
+        this.subject,
+        (message: Message | null) => {
+          if (message !== null) {
+            console.log(`Message Received to: ${this.subject}`);
+            const parseMsg = this.parseMessage(message);
+            this.onMessage(parseMsg, message, channel);
+          }
+        },
+        {
+          noAck: true,
         }
-      });
+      );
     });
   }
   parseMessage(msg: Message) {

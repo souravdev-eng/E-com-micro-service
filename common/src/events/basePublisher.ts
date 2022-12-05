@@ -18,7 +18,7 @@ export abstract class Publisher<T extends Event> {
       this.client
         .createChannel()
         .then((channel) => {
-          channel.assertQueue(this.subject, { durable: true });
+          channel.assertQueue(this.subject, { durable: true, autoDelete: true });
           channel.sendToQueue(this.subject, Buffer.from(JSON.stringify(data)));
           console.log(`Event published to subject: ${this.subject}`);
           resolve();
