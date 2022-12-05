@@ -53,6 +53,8 @@ var Listener = /** @class */ (function () {
                             var parseMsg = _this.parseMessage(message);
                             _this.onMessage(parseMsg, message, channel);
                         }
+                    }, {
+                        noAck: true,
                     });
                 });
                 return [2 /*return*/];
