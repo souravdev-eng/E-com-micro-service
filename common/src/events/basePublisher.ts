@@ -1,4 +1,4 @@
-import { Connection } from 'amqplib';
+import { Stan } from 'node-nats-streaming';
 import { Subjects } from '../types/subjects';
 
 interface Event {
@@ -8,25 +8,21 @@ interface Event {
 
 export abstract class Publisher<T extends Event> {
   abstract subject: T['subject'];
-  protected client: Connection;
+  protected client: Stan;
 
-  constructor(client: Connection) {
+  constructor(client: Stan) {
     this.client = client;
   }
+
   publish(data: T['data']): Promise<void> {
     return new Promise((resolve, reject) => {
-      this.client
-        .createChannel()
-        .then((channel) => {
-          channel.assertQueue(this.subject, {
-            durable: false,
-            exclusive: true,
-          });
-          channel.sendToQueue(this.subject, Buffer.from(JSON.stringify(data)));
-          console.log(`Event published to subject: ${this.subject}`);
-          resolve();
-        })
-        .catch((error) => reject(error));
+      this.client.publish(this.subject, JSON.stringify(data), (err) => {
+        if (err) {
+          return reject(err);
+        }
+        console.log('Event published to subject', this.subject);
+        resolve();
+      });
     });
   }
 }
