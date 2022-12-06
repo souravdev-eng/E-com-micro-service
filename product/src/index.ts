@@ -1,5 +1,7 @@
 import mongoose from 'mongoose';
 import app from './app';
+import { ProductCreatedListener } from './events/listeners/productCreatedListeners';
+import { natsWrapper } from './natsWrapper';
 
 const start = async () => {
   if (!process.env.MONGO_USER) {
@@ -11,8 +13,31 @@ const start = async () => {
   if (!process.env.MONGO_PASSWORD) {
     throw new Error('Mongo DB password not found');
   }
+  if (!process.env.NATS_CLIENT_ID) {
+    throw new Error('NATS_CLIENT_ID must be defined');
+  }
+  if (!process.env.NATS_URL) {
+    throw new Error('NATS_URL must be defined');
+  }
+  if (!process.env.NATS_CLUSTER_ID) {
+    throw new Error('NATS_CLUSTER_ID must be defined');
+  }
 
   try {
+    await natsWrapper.connect(
+      process.env.NATS_CLUSTER_ID,
+      process.env.NATS_CLIENT_ID,
+      process.env.NATS_URL
+    );
+    natsWrapper.client.on('close', () => {
+      console.log('NATS connection closed!');
+      process.exit();
+    });
+    process.on('SIGINT', () => natsWrapper.client.close());
+    process.on('SIGTERM', () => natsWrapper.client.close());
+
+    new ProductCreatedListener(natsWrapper.client).listen();
+
     mongoose
       .connect(process.env.DB_URL!, {
         user: process.env.MONGO_USER,

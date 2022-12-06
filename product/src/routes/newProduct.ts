@@ -1,5 +1,7 @@
 import { Router, Response, Request, NextFunction } from 'express';
+import { ProductCreatedPublisher } from '../events/publishers/productCreatedPublisher';
 import { Product } from '../models/productModel';
+import { natsWrapper } from '../natsWrapper';
 
 const router = Router();
 
@@ -14,6 +16,13 @@ router.post('/api/product/new', async (req: Request, res: Response, next: NextFu
   });
 
   await product.save();
+  new ProductCreatedPublisher(natsWrapper.client).publish({
+    id: product.id,
+    title: product.title,
+    price: product.price,
+    productUrl: product.image,
+    sellerId: product.sellerId,
+  });
 
   res.status(201).send(product);
 });
