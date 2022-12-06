@@ -1,4 +1,4 @@
-import { Message, Connection, Channel } from 'amqplib';
+import { Message, Stan } from 'node-nats-streaming';
 import { Subjects } from '../types/subjects';
 interface Event {
     subject: Subjects;
@@ -6,10 +6,13 @@ interface Event {
 }
 export declare abstract class Listener<T extends Event> {
     abstract subject: T['subject'];
-    abstract onMessage(data: T['data'], msg: Message, channel: Channel): void;
-    private client;
-    constructor(client: Connection);
-    listen(): Promise<void>;
+    abstract queueGroupName: string;
+    abstract onMessage(data: T['data'], msg: Message): void;
+    protected client: Stan;
+    protected ackWait: number;
+    constructor(client: Stan);
+    subscriptionOptions(): import("node-nats-streaming").SubscriptionOptions;
+    listen(): void;
     parseMessage(msg: Message): any;
 }
 export {};

@@ -8,15 +8,13 @@ var Publisher = /** @class */ (function () {
     Publisher.prototype.publish = function (data) {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            _this.client
-                .createChannel()
-                .then(function (channel) {
-                channel.assertQueue(_this.subject, { durable: true });
-                channel.sendToQueue(_this.subject, Buffer.from(JSON.stringify(data)));
-                console.log("Event published to subject: ".concat(_this.subject));
+            _this.client.publish(_this.subject, JSON.stringify(data), function (err) {
+                if (err) {
+                    return reject(err);
+                }
+                console.log('Event published to subject', _this.subject);
                 resolve();
-            })
-                .catch(function (error) { return reject(error); });
+            });
         });
     };
     return Publisher;

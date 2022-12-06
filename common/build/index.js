@@ -25,6 +25,4 @@ __exportStar(require("./middleware/requestValidation"), exports);
 __exportStar(require("./events/baseListener"), exports);
 __exportStar(require("./events/basePublisher"), exports);
 __exportStar(require("./events/productCreatedEvent"), exports);
-__exportStar(require("./events/productCreatedListener"), exports);
-__exportStar(require("./events/productCreatedPublisher"), exports);
 __exportStar(require("./types/subjects"), exports);
