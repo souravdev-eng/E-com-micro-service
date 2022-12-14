@@ -21,12 +21,12 @@ var NotAuthorizedError = /** @class */ (function (_super) {
     __extends(NotAuthorizedError, _super);
     function NotAuthorizedError() {
         var _this = _super.call(this, 'Not authorized') || this;
-        _this.statusCode = 401;
+        _this.statusCode = 403;
         Object.setPrototypeOf(_this, NotAuthorizedError.prototype);
         return _this;
     }
     NotAuthorizedError.prototype.serializeErrors = function () {
-        return [{ message: 'Not authorized' }];
+        return [{ message: 'Oops! You are not authorized to access this route' }];
     };
     return NotAuthorizedError;
 }(baseError_1.BaseError));

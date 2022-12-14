@@ -5,7 +5,7 @@ import { BadRequestError } from '../errors/badRequestError';
 type UserPayload = {
   id: string;
   email: string;
-  role?: string;
+  role: string;
 };
 
 declare global {
