@@ -11,5 +11,5 @@ declare global {
         }
     }
 }
-export declare const protect: (req: Request, res: Response, next: NextFunction) => Promise<void>;
+export declare const currentUser: (req: Request, res: Response, next: NextFunction) => void;
 export {};
