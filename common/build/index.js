@@ -24,6 +24,7 @@ __exportStar(require("./middleware/currentUser"), exports);
 __exportStar(require("./middleware/restrictTo"), exports);
 __exportStar(require("./middleware/requestValidation"), exports);
 __exportStar(require("./middleware/requireAuth"), exports);
+__exportStar(require("./middleware/currentUser"), exports);
 __exportStar(require("./events/baseListener"), exports);
 __exportStar(require("./events/basePublisher"), exports);
 __exportStar(require("./events/productCreatedEvent"), exports);

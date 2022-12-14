@@ -15,7 +15,7 @@
     ]
   },
   "dependencies": {
-    "@ecom-micro/common": "^2.0.2",
+    "@ecom-micro/common": "2.0.17",
     "@types/bcryptjs": "^2.4.2",
     "@types/cookie-session": "^2.0.44",
     "@types/cors": "^2.8.12",

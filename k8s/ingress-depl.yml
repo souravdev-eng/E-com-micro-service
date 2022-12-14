@@ -37,13 +37,13 @@ spec:
     - host: seller.ecom.dev
       http:
         paths:
-          - path: /api/product/?(.*)
-            pathType: Prefix
-            backend:
-              service:
-                name: product-srv
-                port:
-                  number: 4000
+          # - path: /api/product/?(.*)
+          #   pathType: Prefix
+          #   backend:
+          #     service:
+          #       name: product-srv
+          #       port:
+          #         number: 4000
 
           - path: /?(.*)
             pathType: Prefix

@@ -1046,10 +1046,10 @@
   dependencies:
     "@jridgewell/trace-mapping" "0.3.9"
 
-"@ecom-micro/common@2.0.9":
-  version "2.0.9"
-  resolved "https://registry.yarnpkg.com/@ecom-micro/common/-/common-2.0.9.tgz#d9b9a452df40eb058f6e27b0084746102714720a"
-  integrity sha512-8S37BoA7pUBMHAbIvOSARGyUofBMOyPXNLSr/YRkm4kcD9xQIFnLYccCeK6F53ZAJjqkhCaUeDGSwD2lMZ8oGA==
+"@ecom-micro/common@2.0.17":
+  version "2.0.17"
+  resolved "https://registry.yarnpkg.com/@ecom-micro/common/-/common-2.0.17.tgz#10987af09dfd98fdceaecbe8a200095076dbcc70"
+  integrity sha512-mMrmQPHQoZ21AUZrbPIFh9Tp7OuamtwHPtv2IbHWE+SbtLWHipZXoHpu+6VocMSFD4N95BJp2w0+mmB4hmQlEQ==
   dependencies:
     "@types/amqplib" "^0.10.0"
     "@types/cookie-session" "^2.0.44"
@@ -1415,7 +1415,7 @@
 
 "@types/cookie-session@^2.0.44":
   version "2.0.44"
-  resolved "https://registry.npmjs.org/@types/cookie-session/-/cookie-session-2.0.44.tgz"
+  resolved "https://registry.yarnpkg.com/@types/cookie-session/-/cookie-session-2.0.44.tgz#86f3810bf19716ff716e08f877ce40cee9062267"
   integrity sha512-3DheOZ41pql6raSIkqEPphJdhA2dX2bkS+s2Qacv8YMKkoCbAIEXbsDil7351ARzMqvfyDUGNeHGiRZveIzhqQ==
   dependencies:
     "@types/express" "*"
@@ -2016,7 +2016,7 @@ convert-source-map@^2.0.0:
 
 cookie-session@^2.0.0:
   version "2.0.0"
-  resolved "https://registry.npmjs.org/cookie-session/-/cookie-session-2.0.0.tgz"
+  resolved "https://registry.yarnpkg.com/cookie-session/-/cookie-session-2.0.0.tgz#d07aa27822f43619e4342df1342268c849833089"
   integrity sha512-hKvgoThbw00zQOleSlUr2qpvuNweoqBtxrmx0UFosx6AGi9lYtLoA+RbsvknrEX8Pr6MDbdWAb2j6SnMn+lPsg==
   dependencies:
     cookies "0.8.0"
