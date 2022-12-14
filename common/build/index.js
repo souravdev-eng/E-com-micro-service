@@ -21,6 +21,7 @@ __exportStar(require("./errors/notFoundError"), exports);
 __exportStar(require("./errors/requestValidationError"), exports);
 __exportStar(require("./middleware/errorHandler"), exports);
 __exportStar(require("./middleware/protect"), exports);
+__exportStar(require("./middleware/restrictTo"), exports);
 __exportStar(require("./middleware/requestValidation"), exports);
 __exportStar(require("./events/baseListener"), exports);
 __exportStar(require("./events/basePublisher"), exports);
