@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Tooltip, IconButton, Avatar, Menu, MenuItem, Typography } from '@mui/material';
+import { Box,  IconButton, Avatar, Menu, MenuItem, Typography } from '@mui/material';
 import { signOutAction } from '../../store/actions/user.action';
 import { useAppDispatch } from '../../hooks/useAppRedux';
 import { useNavigate } from 'react-router-dom';

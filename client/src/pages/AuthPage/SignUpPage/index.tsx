@@ -26,7 +26,7 @@ const SignUpPage = () => {
     if (user !== null && user.id) {
       redirect('/');
     }
-  }, [user, redirect]);
+  }, [user]);
 
   return (
     <div className='container'>
