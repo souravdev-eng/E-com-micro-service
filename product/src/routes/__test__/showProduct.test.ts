@@ -1,5 +1,6 @@
 import request from 'supertest';
 import app from '../../app';
+import { natsWrapper } from '../../natsWrapper';
 
 describe('Show Product List', () => {
   it('should return 403 if user is not logged in first', async () => {
@@ -38,6 +39,8 @@ describe('Show Product List', () => {
         sellerId: payload.id,
       })
       .expect(201);
+
+    // expect(natsWrapper.client.publish).toHaveBeenCalled();
 
     // console.log(response.body);
   });

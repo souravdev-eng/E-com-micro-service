@@ -1046,10 +1046,10 @@
   dependencies:
     "@jridgewell/trace-mapping" "0.3.9"
 
-"@ecom-micro/common@2.0.17":
-  version "2.0.17"
-  resolved "https://registry.yarnpkg.com/@ecom-micro/common/-/common-2.0.17.tgz#10987af09dfd98fdceaecbe8a200095076dbcc70"
-  integrity sha512-mMrmQPHQoZ21AUZrbPIFh9Tp7OuamtwHPtv2IbHWE+SbtLWHipZXoHpu+6VocMSFD4N95BJp2w0+mmB4hmQlEQ==
+"@ecom-micro/common@2.0.20":
+  version "2.0.20"
+  resolved "https://registry.yarnpkg.com/@ecom-micro/common/-/common-2.0.20.tgz#c83c10edfb6efddba8143fd08f778d158bf13c53"
+  integrity sha512-koEVaNXMqFCDER3jFbPXRpVd8qVBwYhgMggHVOYf5UZ2igi3N0wiDmB6gJ7M4MwqYpq1qBJv6LDQDVGe9OkWsQ==
   dependencies:
     "@types/amqplib" "^0.10.0"
     "@types/cookie-session" "^2.0.44"
