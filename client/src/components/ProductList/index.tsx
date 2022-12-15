@@ -5,11 +5,14 @@ import './product-list.style.scss';
 interface CardListProps {
   title: string;
   data: {
-    id?: string;
-    name: string;
+    title: string;
+    image: string;
+    category: string;
+    description: string;
     price: number;
-    img: string;
-    rating?: number;
+    rating: number;
+    sellerId: string;
+    id: string;
   }[];
 }
 
@@ -19,7 +22,7 @@ const ProductList: FC<CardListProps> = ({ title, data }) => {
       <h2 className='listContainer__title'>{title}</h2>
       <div className='listContainer__grid'>
         {data.map((el) => (
-          <ProductCard name={el.name} imageURL={el.img} price={el.price} key={el.id} />
+          <ProductCard key={el.id} {...el} />
         ))}
       </div>
     </div>
