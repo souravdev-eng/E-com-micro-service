@@ -12,9 +12,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.errorHandler = void 0;
 const baseError_1 = require("../errors/baseError");
 const errorHandler = (err, req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    if (process.env.NODE_ENV !== 'test') {
-        console.log(err.stack);
-    }
+    // if (process.env.NODE_ENV !== 'test') {
+    console.log(err.stack);
+    // }
     if (err instanceof baseError_1.BaseError) {
         return res.status(err.statusCode).json({ errors: err.serializeErrors() });
     }
