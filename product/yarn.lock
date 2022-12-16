@@ -1461,7 +1461,7 @@
 
 "@types/express-validator@^3.0.0":
   version "3.0.0"
-  resolved "https://registry.npmjs.org/@types/express-validator/-/express-validator-3.0.0.tgz"
+  resolved "https://registry.yarnpkg.com/@types/express-validator/-/express-validator-3.0.0.tgz#e6f3cab842e5ae376a1cfa11295202ec380b68d1"
   integrity sha512-LusnB0YhTXpBT25PXyGPQlK7leE1e41Vezq1hHEUwjfkopM1Pkv2X2Ppxqh9c+w/HZ6Udzki8AJotKNjDTGdkQ==
   dependencies:
     express-validator "*"
