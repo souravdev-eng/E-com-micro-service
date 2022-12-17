@@ -18,7 +18,7 @@ export default function HomePage() {
             {/* TOP header */}
             <div className={styles.headerContainer}>
               <div className={styles.nameContainer}>
-                <h4 className={styles.name}>Welcome, James</h4>
+                <h4 className={styles.name}>Welcome, Sourav</h4>
                 <span className={styles.time}>1 October 2022 | 11:59 AM GMT</span>
               </div>
               <div className={styles.searchContainer}>
