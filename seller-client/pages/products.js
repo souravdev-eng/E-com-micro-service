@@ -1,14 +1,15 @@
 import React from 'react';
 import { Sidebar } from '../components';
 
-const AnalyticsPage = () => {
+const ProductPage = () => {
   return (
     <Sidebar>
       <div>
-        <p>AnalyticsPage</p>
+        <p>Product page</p>
+        {/*  */}
       </div>
     </Sidebar>
   );
 };
 
-export default AnalyticsPage;
+export default ProductPage;
