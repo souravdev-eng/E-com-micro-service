@@ -1,7 +1,7 @@
 import { BaseError } from './baseError';
 
 export class NotAuthorizedError extends BaseError {
-  statusCode = 401;
+  statusCode = 403;
 
   constructor() {
     super('Not authorized');
@@ -9,6 +9,6 @@ export class NotAuthorizedError extends BaseError {
   }
 
   serializeErrors() {
-    return [{ message: 'Not authorized' }];
+    return [{ message: 'Oops! You are not authorized to access this route' }];
   }
 }

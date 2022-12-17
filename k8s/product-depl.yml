@@ -23,7 +23,7 @@ spec:
                 fieldRef:
                   fieldPath: metadata.name
             - name: NATS_CLUSTER_ID
-              value: product
+              value: ecom
           envFrom:
             - secretRef:
                 name: secret-credential

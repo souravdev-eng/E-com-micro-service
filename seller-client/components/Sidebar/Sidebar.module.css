@@ -1,0 +1,45 @@
+.main {
+  /* width: 100%;
+  height: 100%; */
+  display: flex;
+  flex: 1;
+}
+.container {
+  background-color: var(--black);
+  height: 100vh;
+  width: 245px;
+  border-right: 1px solid #3c3c3c;
+  box-sizing: border-box;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+.logoContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 24px;
+  padding-left: 12px;
+  padding-bottom: 45px;
+}
+
+.heading {
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  margin-left: 12px;
+}
+
+.listContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-self: center;
+  align-items: center;
+  gap: 20px;
+}
+.contentContainer {
+  width: 100%;
+  height: 100%;
+  margin-left: 245px;
+}

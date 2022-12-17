@@ -1,10 +1,14 @@
 import { Subjects, ProductCreatedEvent, Listener } from '@ecom-micro/common';
-import { Message, Channel } from 'amqplib';
+import { Message } from 'node-nats-streaming';
+import { queueGroupName } from '../queueName';
 
 export class ProductCreatedListener extends Listener<ProductCreatedEvent> {
   subject: Subjects.ProductCreated = Subjects.ProductCreated;
-  async onMessage(data: ProductCreatedEvent['data'], msg: Message, channel: Channel) {
+  queueGroupName = queueGroupName;
+
+  async onMessage(data: ProductCreatedEvent['data'], msg: Message) {
     console.log(data);
-    // channel.ack(msg)
+
+    msg.ack();
   }
 }

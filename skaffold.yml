@@ -52,11 +52,11 @@ build:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: '/**/*.js'
+          - src: '**/*.js'
             dest: .
-          - src: '/**/*.jsx'
+          - src: '**/*.jsx'
             dest: .
-          - src: '/**/*.css'
+          - src: '**/*.css'
             dest: .
-          - src: '/**/*.json'
+          - src: '**/*.json'
             dest: .

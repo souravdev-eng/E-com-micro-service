@@ -6,8 +6,8 @@ import bcrypt from 'bcryptjs';
 import { signInValidation } from '../validation/newUserValidation';
 import { User } from '../entity/User';
 
-const signInToken = (id: string, email: string) => {
-  return jwt.sign({ id, email }, process.env.JWT_KEY!, {
+const signInToken = (id: string, email: string, role: string) => {
+  return jwt.sign({ id, email, role }, process.env.JWT_KEY!, {
     expiresIn: process.env.JWT_EXPIRE_IN,
   });
 };
@@ -33,16 +33,15 @@ router.post(
       return next(new BadRequestError('Invalid email or Password. Please try again.'));
     }
 
-    const token = signInToken(user.id, user.email);
+    const token = signInToken(user.id, user.email, user.role);
     //* store the token in the session
-    req.session = {
-      jwt: token,
-    };
+    req.session = { jwt: token };
 
     res.status(200).send({
       id: user.id,
       name: user.name,
       email: user.email,
+      role: user.role,
     });
   }
 );

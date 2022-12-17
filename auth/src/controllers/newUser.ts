@@ -1,12 +1,12 @@
 import jwt from 'jsonwebtoken';
 import { Router, Request, Response, NextFunction } from 'express';
-import { requestValidation, BadRequestError } from '@ecom-micro/common';
 import { signUpValidation } from '../validation/newUserValidation';
+import { requestValidation, BadRequestError } from '@ecom-micro/common';
 
 import { User } from '../entity/User';
 
-const signInToken = (id: string, email: string) => {
-  return jwt.sign({ id, email }, process.env.JWT_KEY!, {
+const signInToken = (id: string, email: string, role: string) => {
+  return jwt.sign({ id, email, role }, process.env.JWT_KEY!, {
     expiresIn: process.env.JWT_EXPIRE_IN,
   });
 };
@@ -29,11 +29,12 @@ router.post(
       email: req.body.email,
       password: req.body.password,
       passwordConform: req.body.passwordConform,
+      role: req.body.role,
     });
 
     await user.save();
 
-    const token = signInToken(user.id, user.email);
+    const token = signInToken(user.id, user.email, user.role);
     // store the token in the session
     req.session = {
       jwt: token,
@@ -43,6 +44,7 @@ router.post(
       id: user.id,
       name: user.name,
       email: user.email,
+      role: user.role,
     });
   }
 );

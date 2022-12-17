@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, BeforeInsert, } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, BeforeInsert } from 'typeorm';
 import bcrypt from 'bcryptjs';
 
 @Entity('user')
@@ -17,6 +17,9 @@ export class User extends BaseEntity {
 
   @Column({ select: false, nullable: true })
   passwordConform: string;
+
+  @Column({ default: 'user', enum: ['user', 'seller', 'admin'] })
+  role: string;
 
   @BeforeInsert()
   async beforeInsert() {

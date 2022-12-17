@@ -22,6 +22,9 @@ const start = async () => {
   if (!process.env.NATS_CLUSTER_ID) {
     throw new Error('NATS_CLUSTER_ID must be defined');
   }
+  if (!process.env.JWT_KEY) {
+    throw new Error('JWT is not found');
+  }
 
   try {
     await natsWrapper.connect(
@@ -43,14 +46,14 @@ const start = async () => {
         user: process.env.MONGO_USER,
         pass: process.env.MONGO_PASSWORD,
       })
-      .then(() => console.log('Product Service DB is connected...'))
+      .then(() => console.log('Product Service DB is connected'))
       .catch((err) => {
         console.log(err.message);
         process.exit(1);
       });
 
     app.listen(4000, () => {
-      console.log('Product server running on PORT--> 4000...');
+      console.log('Product server running on PORT--> 4000');
     });
   } catch (error: any) {
     console.log(error.message);
