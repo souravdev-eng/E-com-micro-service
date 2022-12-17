@@ -5,7 +5,7 @@ const AnalyticsPage = () => {
   return (
     <Sidebar>
       <div>
-        <p>AnalyticsPage</p>
+        <h2>This page is under constriction</h2>
       </div>
     </Sidebar>
   );

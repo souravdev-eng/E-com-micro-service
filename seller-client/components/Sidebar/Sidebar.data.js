@@ -21,4 +21,14 @@ export const SidebarData = [
     icon: '/assets/icons/Wallet.png',
     path: '/payment',
   },
+  {
+    name: 'Settings',
+    icon: '/assets/icons/Setting.png',
+    path: '/setting',
+  },
+  {
+    name: 'Account',
+    icon: '/assets/icons/Settings.png',
+    path: '/profile',
+  },
 ];

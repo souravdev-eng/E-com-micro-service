@@ -1,7 +1,7 @@
 import React from 'react';
 import { Sidebar } from '../components';
 
-const ProductPage = () => {
+const SettingsPage = () => {
   return (
     <Sidebar>
       <div>
@@ -11,4 +11,4 @@ const ProductPage = () => {
   );
 };
 
-export default ProductPage;
+export default SettingsPage;

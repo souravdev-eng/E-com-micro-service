@@ -16,6 +16,9 @@ const Sidebar = ({ children }) => {
           {SidebarData.map((el) => (
             <MenuItemCard key={el.name} {...el} />
           ))}
+          <div style={{ position: 'absolute', bottom: 30 }}>
+            <MenuItemCard name='Logout' icon={'/assets/icons/Logout.png'} path='/logout' />
+          </div>
         </div>
       </div>
       <div className={style.contentContainer}>{children}</div>

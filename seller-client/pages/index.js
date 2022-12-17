@@ -3,7 +3,7 @@ import styles from '../styles/Home.module.css';
 import { Card, Sidebar } from '../components';
 import Image from 'next/image';
 
-export default function Home() {
+export default function HomePage() {
   return (
     <div className={styles.container}>
       <Head>
