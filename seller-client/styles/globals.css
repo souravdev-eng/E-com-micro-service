@@ -45,10 +45,13 @@ li {
 }
 :root {
   --blue: #1900d5;
+  --green: #037400;
   --yellow-light: #c1ef00;
   --orange-red: #e8502f;
   --black: #000000;
   --grey: #3c3c3c;
   --grey-light: #7c7c7c;
   --green-light: #a9ffa7;
+  --pink-light: #ffa7a7;
+  --red: #740000;
 }
