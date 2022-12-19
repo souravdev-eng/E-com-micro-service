@@ -1,8 +1,7 @@
 import Head from 'next/head';
-import styles from '../styles/Home.module.css';
-import { Card, Sidebar } from '../components';
 import Image from 'next/image';
-import RevenueCard from '../components/RevenueCard/RevenueCard';
+import { Card, CustomerReturnCard, Sidebar, RevenueCard } from '../components';
+import styles from '../styles/Home.module.css';
 
 export default function HomePage() {
   return (
@@ -34,9 +33,7 @@ export default function HomePage() {
             </div>
             <div className={styles.content}>
               <RevenueCard />
-              <Card>
-                <p>Card Small</p>
-              </Card>
+              <CustomerReturnCard />
               <Card type='mid'>
                 <p>Card Mid</p>
               </Card>
