@@ -2,6 +2,7 @@ import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import { Card, Sidebar } from '../components';
 import Image from 'next/image';
+import RevenueCard from '../components/RevenueCard/RevenueCard';
 
 export default function HomePage() {
   return (
@@ -32,9 +33,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className={styles.content}>
-              <Card>
-                <p>Card Small</p>
-              </Card>
+              <RevenueCard />
               <Card>
                 <p>Card Small</p>
               </Card>

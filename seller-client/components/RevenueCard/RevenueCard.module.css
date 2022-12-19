@@ -1,0 +1,49 @@
+.name {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+  color: #fff;
+}
+.headingPrice {
+  font-weight: 600;
+  font-size: 30px;
+  color: #fff;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.growthWrapper {
+  flex-direction: row;
+  display: flex;
+  gap: 4px;
+  width: 130px;
+  justify-content: space-between;
+  margin: 10px 0px;
+}
+
+.growthPercentage {
+  display: flex;
+  background-color: var(--green-light);
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 4px;
+  gap: 4px;
+  width: 60px;
+  height: 26px;
+}
+.growthText {
+  font-size: 12px;
+  color: var(--green);
+}
+.price {
+  color: var(--grey-light);
+}
+.chart {
+  width: 60px;
+  height: 60px;
+  background-color: var(--green-light);
+}
