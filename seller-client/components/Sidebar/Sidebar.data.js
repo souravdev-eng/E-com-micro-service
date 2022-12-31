@@ -17,6 +17,11 @@ export const SidebarData = [
     path: '/products',
   },
   {
+    name: 'Orders',
+    icon: '/assets/icons/Orders.png',
+    path: '/orders',
+  },
+  {
     name: 'Payment',
     icon: '/assets/icons/Wallet.png',
     path: '/payment',

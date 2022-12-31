@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import { Card, CustomerReturnCard, Sidebar, RevenueCard } from '../components';
+import { Card, CustomerReturnCard, Sidebar, RevenueCard, TopProducts } from '../components';
 import styles from '../styles/Home.module.css';
 
 export default function HomePage() {
@@ -40,14 +40,9 @@ export default function HomePage() {
               <Card type='big'>
                 <p>Card Big</p>
               </Card>
-              <Card type='mid'>
-                <p>Card mid</p>
-              </Card>
+              <TopProducts />
               <Card type='big'>
                 <p>Card Big</p>
-              </Card>
-              <Card type='mid'>
-                <p>Card mid</p>
               </Card>
             </div>
           </div>
