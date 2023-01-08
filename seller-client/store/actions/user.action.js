@@ -3,10 +3,10 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const userSignUpAction = createAsyncThunk(
   'user/signup',
-  async ({ name, email, password, passwordConform, url }, { rejectWithValue }) => {
+  async ({ name, email, password, passwordConform }, { rejectWithValue }) => {
     try {
       const { data } = await axios.post(
-        `${url}/users/signup`,
+        `/api/users/signup`,
         { name, email, password, passwordConform, role: 'seller' },
         { headers: { 'Content-type': 'application/json' } }
       );
@@ -19,10 +19,9 @@ export const userSignUpAction = createAsyncThunk(
 );
 export const userLoginAction = createAsyncThunk(
   'user/login',
-  async (email, password, url, { rejectWithValue }) => {
+  async ({ email, password }, { rejectWithValue }) => {
     try {
       const { data } = await axios.post(
-        // `${url}/users/login`,
         `/api/users/login`,
         { email, password },
         { headers: { 'Content-type': 'application/json' } }
@@ -30,35 +29,31 @@ export const userLoginAction = createAsyncThunk(
       return data;
     } catch (error) {
       console.log('err', error);
-      // console.log('User Login Error: ', error.response.data.errors);
-      // throw rejectWithValue(error.response.data.errors);
-      throw rejectWithValue(['Error']);
+      console.log('User Login Error: ', error.response.data.errors);
+      throw rejectWithValue(error.response.data.errors);
     }
   }
 );
 
 export const currentUserAction = createAsyncThunk(
   'user/current',
-  async ({ url }, { rejectWithValue }) => {
+  async (_, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get(`${url}/users/currentuser`);
+      const { data } = await axios.get(`/api/users/currentuser`);
       return data.currentUser;
-    } catch (error) {
-      console.log('User Login Error: ', error.response.data.errors);
-      // throw rejectWithValue(error.response.data.errors);
-    }
-  }
-);
-
-export const signOutAction = createAsyncThunk(
-  'user/signout',
-  async ({ url }, { rejectWithValue }) => {
-    try {
-      const { data } = await axios.post(`${url}/users/signout`);
-      return data;
     } catch (error) {
       console.log('User Login Error: ', error.response.data.errors);
       throw rejectWithValue(error.response.data.errors);
     }
   }
 );
+
+export const signOutAction = createAsyncThunk('user/signout', async (_, { rejectWithValue }) => {
+  try {
+    const { data } = await axios.post(`/api/users/signout`);
+    return data;
+  } catch (error) {
+    console.log('User Login Error: ', error.response.data.errors);
+    throw rejectWithValue(error.response.data.errors);
+  }
+});

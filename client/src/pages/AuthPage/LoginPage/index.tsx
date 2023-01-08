@@ -57,13 +57,12 @@ const LoginPage = () => {
             <Field
               id='password'
               name='password'
-              placeholder='Enter your password'
               type='password'
+              placeholder='Enter your password'
               className='form__text-input'
             />
             <ErrorMessage name='password' data-testid='passwordError'>
               {(msg) => {
-                console.log(msg);
                 return <div className='form__error-msg'>{msg}</div>;
               }}
             </ErrorMessage>

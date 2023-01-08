@@ -1,17 +1,23 @@
-import React from 'react';
 import Link from 'next/link';
-import { Form, Formik, Field, ErrorMessage } from 'formik';
-import { signupValidationSchema } from '../../validation';
+import React, { useEffect, useState } from 'react';
 import { useAuth } from '../../hooks/useAuth';
+import { useSession } from 'next-auth/client';
 import styles from '../../styles/Signup.module.css';
 
 const LoginPage = () => {
-  const { handleLogin, error, loading, router, user } = useAuth();
-  // useEffect(() => {
-  //   if (user !== null && error === null) {
-  //     router.push('/');
-  //   }
-  // }, [user, error, navigate]);
+  const { handleLogin, error, router, user } = useAuth();
+  const [session, loading] = useSession();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && loading) return null;
+
+    if (typeof window !== 'undefined' && !session) {
+      router.push('/login');
+    }
+    router.push('/');
+  }, []);
 
   // useEffect(() => {
   //   if (user !== null && user.id) {
@@ -19,63 +25,55 @@ const LoginPage = () => {
   //   }
   // }, []);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleLogin(email, password);
+  };
+
   return (
     <div className={styles.main}>
       <div className={styles.card}>
         <h3 className={styles.formTitle}>Login to your seller account</h3>
-        <Formik
-          initialValues={{
-            email: '',
-            password: '',
-          }}
-          onSubmit={(values) => {
-            console.log(values);
-            handleLogin(values);
-          }}
-          validationSchema={signupValidationSchema}>
-          <>
-            <Form className={styles.form}>
-              {error &&
-                error.map((el, idx) => (
-                  <div className={styles.formErrorMsg} key={idx}>
-                    {el.message}
-                  </div>
-                ))}
-              <Field
-                id='email'
-                name='email'
-                placeholder='Enter your email'
-                type='text'
-                className={styles.formTextInput}
-              />
-              <ErrorMessage name='email'>
-                {(msg) => <div className={styles.formErrorMsg}>{msg}</div>}
-              </ErrorMessage>
-              <Field
-                id='password'
-                name='password'
-                placeholder='Enter your password'
-                type='password'
-                className={styles.formTextInput}
-              />
-              <ErrorMessage name='password'>
-                {(msg) => <div className={styles.formErrorMsg}>{msg}</div>}
-              </ErrorMessage>
-
-              <div className={styles.formButtonWrapper}>
-                <button className={styles.button} onClick={handleLogin}>
-                  Login
-                </button>
+        <form className={styles.form} onSubmit={handleSubmit}>
+          {error &&
+            error.map((el, idx) => (
+              <div className={styles.formErrorMsg} key={idx}>
+                {el.message}
               </div>
-              <p className={styles.formLink}>
-                Don't have an account?{' '}
-                <Link href='/auth/signup'>
-                  <span className={styles.textBlue}>Click to signup</span>
-                </Link>
-              </p>
-            </Form>
-          </>
-        </Formik>
+            ))}
+
+          <input
+            id='email'
+            name='email'
+            type='email'
+            placeholder='Enter your email'
+            className={styles.formTextInput}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+
+          <input
+            id='password'
+            name='password'
+            type='password'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder='Enter your password'
+            className={styles.formTextInput}
+          />
+
+          <div className={styles.formButtonWrapper}>
+            <button className={styles.button} type='submit'>
+              Login
+            </button>
+          </div>
+          <p className={styles.formLink}>
+            Don't have an account?{' '}
+            <Link href='/auth/signup'>
+              <span className={styles.textBlue}>Click to signup</span>
+            </Link>
+          </p>
+        </form>
       </div>
     </div>
   );

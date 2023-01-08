@@ -1,4 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { createWrapper } from 'next-redux-wrapper';
+
 import usersReducer from './reducers/user.reducers';
 
 const store = configureStore({
@@ -7,4 +9,12 @@ const store = configureStore({
   },
 });
 
+const initStore = () =>
+  configureStore({
+    reducer: {
+      users: usersReducer,
+    },
+  });
+
+export const wrapper = createWrapper(initStore);
 export default store;

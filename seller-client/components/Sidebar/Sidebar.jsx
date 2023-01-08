@@ -8,7 +8,7 @@ const Sidebar = ({ children }) => {
     <div className={style.main}>
       <div className={style.container}>
         <div className={style.logoContainer}>
-          <Image src='/assets/img/logo.png' width={50} height={50} />
+          <Image src='/assets/img/logo.png' width={50} height={50} alt='logo' />
           <h3 className={style.heading}>Ecom</h3>
         </div>
 

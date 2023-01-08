@@ -1,9 +1,19 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Card, CustomerReturnCard, Sidebar, RevenueCard, TopProducts } from '../components';
+import { currentUserAction } from '../store/actions/user.action';
+import { wrapper } from '../store/store';
 import styles from '../styles/Home.module.css';
 
 export default function HomePage() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(currentUserAction());
+  }, []);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -22,11 +32,11 @@ export default function HomePage() {
                 <span className={styles.time}>1 October 2022 | 11:59 AM GMT</span>
               </div>
               <div className={styles.searchContainer}>
-                <Image src={'/assets/icons/Message.png'} width={24} height={24} />
-                <Image src={'/assets/icons/BellA.png'} width={24} height={24} />
+                <Image src={'/assets/icons/Message.png'} width={24} height={24} alt='message' />
+                <Image src={'/assets/icons/BellA.png'} width={24} height={24} alt='bell' />
 
                 <div className={styles.searchBox}>
-                  <Image src={'/assets/icons/Search.png'} width={24} height={24} />
+                  <Image src={'/assets/icons/Search.png'} width={24} height={24} alt='search' />
                   <input placeholder='Search' className={styles.input} />
                 </div>
               </div>
@@ -51,3 +61,7 @@ export default function HomePage() {
     </div>
   );
 }
+
+HomePage.getInitialProps = wrapper.getStaticProps((store) => () => {
+  store.dispatch(currentUserAction());
+});

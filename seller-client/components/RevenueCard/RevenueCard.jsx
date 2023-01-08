@@ -12,7 +12,7 @@ const RevenueCard = () => {
           <h4 className={styles.headingPrice}>$25,565</h4>
           <div className={styles.growthWrapper}>
             <div className={styles.growthPercentage}>
-              <Image src={'/assets/icons/Trendup.png'} width={16} height={16} />
+              <Image src={'/assets/icons/Trendup.png'} width={16} height={16} alt='up' />
               <span className={styles.growthText}>20%</span>
             </div>
             <span className={styles.price}>$20,452</span>

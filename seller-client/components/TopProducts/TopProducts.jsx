@@ -13,6 +13,7 @@ const ProductCard = () => {
           width={56}
           height={56}
           className={styles.cardImage}
+          alt='image'
         />
       </div>
       <div style={{ marginLeft: 8 }}>
@@ -32,7 +33,7 @@ const TopProducts = () => {
       <h1 className={styles.title}>Top Products</h1>
       <div className={styles.searchContainer}>
         <div className={styles.searchBox}>
-          <Image src={'/assets/icons/Search.png'} width={20} height={20} />
+          <Image src={'/assets/icons/Search.png'} width={20} height={20} alt='image' />
           <input placeholder='Search' className={styles.input} />
         </div>
       </div>

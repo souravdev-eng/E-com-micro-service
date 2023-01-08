@@ -2,7 +2,7 @@ import axios from 'axios';
 // export const BASE_URL = 'https://seller.ecom.dev/api';
 // export const URL = 'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local/api';
 
-export default ({ req }) => {
+const client = ({ req }) => {
   if (typeof window === 'undefined') {
     // We are on the server
 
@@ -17,3 +17,5 @@ export default ({ req }) => {
     });
   }
 };
+
+export default client;

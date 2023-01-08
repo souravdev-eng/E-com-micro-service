@@ -9,6 +9,7 @@ const GrowthChartSm = ({ grow, value }) => {
         src={grow ? '/assets/icons/Trendup.png' : '/assets/icons/Trenddown.png'}
         width={16}
         height={16}
+        alt='icon'
       />
       <span className={grow ? styles.growthText : styles.downText}>{value}%</span>
     </div>

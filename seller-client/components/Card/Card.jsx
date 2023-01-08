@@ -3,6 +3,7 @@ import styles from './Card.module.css';
 const Card = ({ type = 'sm', children }) => {
   return (
     <div
+      attribute={false}
       className={
         type === 'mid'
           ? styles.containerMid
