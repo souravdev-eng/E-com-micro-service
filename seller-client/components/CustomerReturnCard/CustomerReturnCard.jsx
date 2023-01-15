@@ -1,7 +1,7 @@
-import Image from 'next/image';
 import React from 'react';
-import Card from '../Card/Card';
+import { GrowthChartSm } from '../../global';
 import styles from './CustomerReturnCard.module.css';
+import Card from '../Card/Card';
 
 const CustomerReturnCard = () => {
   return (
@@ -11,10 +11,7 @@ const CustomerReturnCard = () => {
         <div>
           <h4 className={styles.headingPrice}>7956</h4>
           <div className={styles.growthWrapper}>
-            <div className={styles.growthPercentage}>
-              <Image src={'/assets/icons/Trenddown.png'} width={16} height={16} />
-              <span className={styles.growthText}>15%</span>
-            </div>
+            <GrowthChartSm value={16} />
             <span className={styles.price}>6759</span>
           </div>
         </div>

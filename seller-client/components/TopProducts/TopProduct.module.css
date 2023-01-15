@@ -1,0 +1,73 @@
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.searchContainer {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+.searchBox {
+  background-color: #0f0e0e;
+  height: 37px;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 16px;
+  gap: 10px;
+  border-radius: 8px;
+  margin-top: 8px;
+}
+
+.input {
+  width: 80%;
+  background-color: transparent;
+  height: 100%;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: hidden;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.input:focus {
+  outline: none;
+}
+.productCard {
+  display: flex;
+  gap: 16px;
+  margin: 14px 0px;
+  width: 90%;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--grey);
+}
+.productCardTitle {
+  font-size: 16px;
+  font-weight: 400;
+}
+.cardImage {
+  border-radius: 10px;
+}
+.cardInfoContainer {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 6px;
+}
+.tag {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--grey-light);
+}
+.listContainer {
+  height: 80%;
+  overflow-y: scroll;
+}
+
+.listContainer::-webkit-scrollbar {
+  display: none;
+}

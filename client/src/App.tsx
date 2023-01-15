@@ -6,6 +6,7 @@ import LoginPage from './pages/AuthPage/LoginPage';
 import SignUpPage from './pages/AuthPage/SignUpPage';
 import { useAppDispatch } from './hooks/useAppRedux';
 import { currentUserAction } from './store/actions/user.action';
+import ProductDetail from './pages/ProductDetails';
 
 const App = () => {
   const dispatch = useAppDispatch();
@@ -20,6 +21,7 @@ const App = () => {
       <Routes>
         <Route path='/auth/login' element={<LoginPage />} />
         <Route path='/auth/signup' element={<SignUpPage />} />
+        <Route path='/product/:id' element={<ProductDetail />} />
         <Route path='/' element={<HomePage />} />
       </Routes>
     </>

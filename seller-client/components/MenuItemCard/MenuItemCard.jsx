@@ -9,8 +9,17 @@ const MenuItemCard = ({ path, name, icon }) => {
   return (
     <Link href={path}>
       <div className={router.asPath == path ? style.containerActive : style.container}>
-        <Image src={icon} width={24} height={24} className={router.asPath == path && style.logo} />
-        <span className={router.asPath == path ? style.nameActive : style.name}>{name}</span>
+        <Image
+          src={icon}
+          width={24}
+          height={24}
+          className={router.asPath === path && style.logo}
+          alt='icon'
+          attribute={false}
+        />
+        <span className={router.asPath === path ? style.nameActive : style.name} attribute={false}>
+          {name}
+        </span>
       </div>
     </Link>
   );

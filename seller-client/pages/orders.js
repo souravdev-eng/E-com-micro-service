@@ -1,15 +1,14 @@
 import React from 'react';
 import { Sidebar } from '../components';
-import styles from '../styles/Analytics.module.css';
 
-const AnalyticsPage = () => {
+const OrdersPage = () => {
   return (
     <Sidebar>
-      <div className={styles.main}>
+      <div>
         <h2>This page is under constriction</h2>
       </div>
     </Sidebar>
   );
 };
 
-export default AnalyticsPage;
+export default OrdersPage;
