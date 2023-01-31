@@ -10,7 +10,7 @@ const ProductDetail = () => {
   return (
     <div className='container'>
       <div className='productInfo'>
-        <img src={ProductDetails.image} className='productInfo__image' />
+        <img src={ProductDetails.image} className='productInfo__image' alt={id} />
         <div>
           <h2 className='productInfo__title'>{ProductDetails.title}</h2>
           <Rating

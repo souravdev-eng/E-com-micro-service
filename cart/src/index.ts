@@ -1,6 +1,6 @@
 import { DataSource } from 'typeorm';
-import { User } from './entity/User';
 import app from './app';
+import { Cart } from './entity/Cart';
 
 const start = () => {
   if (!process.env.POSTGRES_DB) {
@@ -18,35 +18,31 @@ const start = () => {
     throw new Error('Postgres is host is not found');
   }
 
-  if (!process.env.JWT_KEY) {
-    throw new Error('JWT is not found');
-  }
-
   try {
     const AppDataSource = new DataSource({
       type: 'postgres',
       port: 5432,
-      database: process.env.POSTGRES_DB,
-      password: process.env.POSTGRES_PASSWORD,
-      username: process.env.POSTGRES_USER,
-      host: process.env.POSTGRES_HOST,
-      entities: [User],
+      database: process.env.POSTGRES_DB!,
+      password: process.env.POSTGRES_PASSWORD!,
+      username: process.env.POSTGRES_USER!,
+      host: process.env.POSTGRES_HOST!,
+      entities: [Cart],
       synchronize: true,
       logging: false,
     });
 
     AppDataSource.initialize()
       .then(() => {
-        console.log(`Auth Postgres Server Started...`);
+        console.log(`Cart Postgres Server Started...`);
       })
       .catch((err: any) => {
-        console.error(err.message);
-        process.exit();
+        console.error(err);
+        // process.exit();
       });
   } catch (error: any) {
     console.log(error);
   }
-  app.listen(3000, () => console.log(`Auth service running on PORT 3000....`));
+  app.listen(3000, () => console.log(`Cart service running on PORT 3000....`));
 };
 
 start();

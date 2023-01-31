@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: auth-depl
+  name: auth-deployment
 spec:
   replicas: 1
   selector:
@@ -15,14 +15,32 @@ spec:
       containers:
         - name: auth
           image: souravdeveloper/ecom-auth
-          envFrom:
-            - secretRef:
-                name: secret-credential
-            - configMapRef:
-                name: app-config
           env:
-            - name: JWT_EXPIRE_IN
-              value: 90d
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: auth-credential
+                  key: POSTGRES_USER
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: auth-credential
+                  key: POSTGRES_PASSWORD
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: auth-credential
+                  key: JWT_KEY
+            - name: POSTGRES_DB
+              valueFrom:
+                configMapKeyRef:
+                  name: auth-config
+                  key: POSTGRES_DB
+            - name: POSTGRES_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: auth-config
+                  key: POSTGRES_HOST
 ---
 apiVersion: v1
 kind: Service

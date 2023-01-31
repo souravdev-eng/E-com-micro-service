@@ -17,6 +17,7 @@ spec:
                 name: auth-srv
                 port:
                   number: 3000
+
           - path: /api/product/?(.*)
             pathType: Prefix
             backend:
@@ -24,28 +25,19 @@ spec:
                 name: product-srv
                 port:
                   number: 4000
-          - path: /?(.*)
+
+          - path: /api/cart/?(.*)
             pathType: Prefix
             backend:
               service:
-                name: client-srv
+                name: cart-srv
                 port:
                   number: 3000
 
-    - host: seller.ecom.dev
-      http:
-        paths:
-          - path: /api/users/?(.*)
+          - path: /api/product/?(.*)
             pathType: Prefix
             backend:
               service:
-                name: auth-srv
+                name: product-srv
                 port:
-                  number: 3000
-          - path: /?(.*)
-            pathType: Prefix
-            backend:
-              service:
-                name: seller-client-srv
-                port:
-                  number: 3000
+                  number: 4000

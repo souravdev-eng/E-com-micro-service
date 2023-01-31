@@ -20,6 +20,15 @@ build:
           - src: 'src/**/*.ts'
             dest: .
 
+    - image: souravdeveloper/ecom-cart
+      context: cart
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
+
     - image: souravdeveloper/ecom-product
       context: product
       docker:
@@ -27,36 +36,4 @@ build:
       sync:
         manual:
           - src: 'src/**/*.ts'
-            dest: .
-
-    - image: souravdeveloper/ecom-client
-      context: client
-      docker:
-        dockerfile: Dockerfile
-      sync:
-        manual:
-          - src: 'src/**/*.ts'
-            dest: .
-          - src: 'src/**/*.tsx'
-            dest: .
-          - src: 'src/**/*.css'
-            dest: .
-          - src: 'src/**/*.scss'
-            dest: .
-          - src: 'src/**/*.json'
-            dest: .
-
-    - image: souravdeveloper/ecom-seller-client
-      context: seller-client
-      docker:
-        dockerfile: Dockerfile
-      sync:
-        manual:
-          - src: '**/*.js'
-            dest: .
-          - src: '**/*.jsx'
-            dest: .
-          - src: '**/*.css'
-            dest: .
-          - src: '**/*.json'
             dest: .
