@@ -26,13 +26,10 @@ const start = () => {
     const AppDataSource = new DataSource({
       type: 'postgres',
       port: 5432,
-      database: process.env.POSTGRES_DB,
-      password: process.env.POSTGRES_PASSWORD,
-      username: process.env.POSTGRES_USER,
-      host: process.env.POSTGRES_HOST,
+      url: `postgres://${process.env.POSTGRES_USER}:${process.env.POSTGRES_DB}@${process.env.POSTGRES_HOST}/${process.env.POSTGRES_DB}`,
       entities: [User],
       synchronize: true,
-      logging: false,
+      ssl: false,
     });
 
     AppDataSource.initialize()

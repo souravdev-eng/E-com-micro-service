@@ -22,13 +22,10 @@ const start = () => {
     const AppDataSource = new DataSource({
       type: 'postgres',
       port: 5432,
-      database: process.env.POSTGRES_DB!,
-      password: process.env.POSTGRES_PASSWORD!,
-      username: process.env.POSTGRES_USER!,
-      host: process.env.POSTGRES_HOST!,
+      url: `postgres://${process.env.POSTGRES_USER}:${process.env.POSTGRES_DB}@${process.env.POSTGRES_HOST}/${process.env.POSTGRES_DB}`,
       entities: [Cart],
       synchronize: true,
-      logging: false,
+      ssl: false,
     });
 
     AppDataSource.initialize()
@@ -37,7 +34,7 @@ const start = () => {
       })
       .catch((err: any) => {
         console.error(err);
-        // process.exit();
+        process.exit();
       });
   } catch (error: any) {
     console.log(error);
