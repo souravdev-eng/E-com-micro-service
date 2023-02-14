@@ -4,7 +4,7 @@ export interface SellerCreatedEvent {
   subject: Subjects.SellerCreated;
   data: {
     id: string;
-    email: number;
+    email: string;
     role: string;
   };
 }

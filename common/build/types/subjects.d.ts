@@ -1,4 +1,6 @@
 export declare enum Subjects {
+    SellerCreated = "seller-created",
+    SellerUpdated = "seller-updated",
     ProductCreated = "product-created",
     ProductUpdated = "product-updated",
     ProductDeleted = "product-deleted",

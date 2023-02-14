@@ -14,4 +14,6 @@ export * from './events/basePublisher';
 export * from './events/productCreatedEvent';
 export * from './events/productUpdatedEvent';
 export * from './events/productDeletedEvent';
+export * from './events/sellerCreatedEvent';
+export * from './events/sellerUpdatedEvent';
 export * from './types/subjects';
