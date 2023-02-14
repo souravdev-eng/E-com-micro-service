@@ -12,4 +12,6 @@ export * from './middleware/currentUser';
 export * from './events/baseListener';
 export * from './events/basePublisher';
 export * from './events/productCreatedEvent';
+export * from './events/productUpdatedEvent';
+export * from './events/productDeletedEvent';
 export * from './types/subjects';
