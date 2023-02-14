@@ -7,3 +7,4 @@ metadata:
 data:
   POSTGRES_DB: fvlikpvu
   POSTGRES_HOST: john.db.elephantsql.com
+  NATS_URL: 'http://nats-srv:4222'

@@ -16,11 +16,20 @@ spec:
         - name: auth
           image: souravdeveloper/ecom-auth
           env:
+            - name: NATS_CLIENT_ID
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+
+            - name: NATS_CLUSTER_ID
+              value: ecom
+
             - name: POSTGRES_USER
               valueFrom:
                 secretKeyRef:
                   name: auth-credential
                   key: POSTGRES_USER
+
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -41,6 +50,9 @@ spec:
                 configMapKeyRef:
                   name: auth-config
                   key: POSTGRES_HOST
+          envFrom:
+            - configMapRef:
+                name: auth-config
 ---
 apiVersion: v1
 kind: Service

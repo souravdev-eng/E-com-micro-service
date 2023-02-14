@@ -9,6 +9,7 @@ import { showProductRouter } from './routes/showProduct';
 import { showProductDetailByIdRouter } from './routes/showProductDetailById';
 import { productUpdateRouter } from './routes/updateProduct';
 import { productDeleteRouter } from './routes/deleteProduct';
+import { productSellerIdUpdateRouter } from './routes/updateAllSellerId';
 
 const app = express();
 
@@ -31,6 +32,7 @@ app.use(showProductRouter);
 app.use(showProductDetailByIdRouter);
 app.use(productUpdateRouter);
 app.use(productDeleteRouter);
+app.use(productSellerIdUpdateRouter);
 
 app.use('*', (req: Request, res: Response, next: NextFunction) => {
   return next(new NotFoundError(`${req.originalUrl} is not find to this server!`));

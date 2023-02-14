@@ -3,7 +3,7 @@ export interface SellerUpdatedEvent {
     subject: Subjects.SellerUpdated;
     data: {
         id: string;
-        email: number;
+        email: string;
         role: string;
     };
 }

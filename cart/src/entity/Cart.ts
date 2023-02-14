@@ -9,6 +9,9 @@ export class Cart extends BaseEntity {
   title: string;
 
   @Column()
+  productId: string;
+
+  @Column()
   image: string;
 
   @Column()

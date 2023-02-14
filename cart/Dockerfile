@@ -4,7 +4,8 @@ WORKDIR '/app'
 
 COPY ./package.json .
 
-RUN npm install --only=prod
+RUN yarn add glob rimraf
+RUN yarn --only=prod
 
 COPY . .
 
