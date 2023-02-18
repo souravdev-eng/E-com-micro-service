@@ -1,7 +1,7 @@
 import { DataSource } from 'typeorm';
+import { natsWrapper } from './natsWrapper';
 import { User } from './entity/User';
 import app from './app';
-import { natsWrapper } from './natsWrapper';
 
 const start = async () => {
   if (!process.env.POSTGRES_DB) {
@@ -26,11 +26,17 @@ const start = async () => {
   if (!process.env.NATS_CLIENT_ID) {
     throw new Error('NATS_CLIENT_ID must be defined');
   }
+
   if (!process.env.NATS_URL) {
     throw new Error('NATS_URL must be defined');
   }
+
   if (!process.env.NATS_CLUSTER_ID) {
     throw new Error('NATS_CLUSTER_ID must be defined');
+  }
+
+  if (!process.env.DB_URL) {
+    throw new Error('DB_URL must be defined');
   }
 
   try {
@@ -49,8 +55,7 @@ const start = async () => {
     const AppDataSource = new DataSource({
       type: 'postgres',
       port: 5432,
-      // url: `postgres://${process.env.POSTGRES_USER}:${process.env.POSTGRES_DB}@${process.env.POSTGRES_HOST}/${process.env.POSTGRES_DB}`,
-      url: `postgres://fvlikpvu:w41V4m6ud3w5w0wZjfKpDXQKMJc1lhe2@john.db.elephantsql.com/fvlikpvu`,
+      url: process.env.DB_URL,
       entities: [User],
       synchronize: true,
       ssl: false,

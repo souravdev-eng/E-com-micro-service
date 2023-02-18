@@ -22,38 +22,11 @@ spec:
                   fieldPath: metadata.name
             - name: NATS_CLUSTER_ID
               value: ecom
-
-            - name: POSTGRES_USER
-              valueFrom:
-                secretKeyRef:
-                  name: cart-credential
-                  key: POSTGRES_USER
-            - name: POSTGRES_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: cart-credential
-                  key: POSTGRES_PASSWORD
-            - name: JWT_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: cart-credential
-                  key: JWT_KEY
-            - name: POSTGRES_DB
-              valueFrom:
-                configMapKeyRef:
-                  name: cart-config
-                  key: POSTGRES_DB
-            - name: POSTGRES_HOST
-              valueFrom:
-                configMapKeyRef:
-                  name: cart-config
-                  key: POSTGRES_HOST
-            - name: NATS_URL
-              valueFrom:
-                configMapKeyRef:
-                  name: cart-config
-                  key: NATS_URL
-
+          envFrom:
+            - configMapRef:
+                name: auth-config
+            - secretRef:
+                name: auth-credential
 ---
 apiVersion: v1
 kind: Service

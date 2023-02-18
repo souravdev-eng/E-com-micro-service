@@ -22,11 +22,17 @@ const start = async () => {
   if (!process.env.NATS_CLIENT_ID) {
     throw new Error('NATS_CLIENT_ID must be defined');
   }
+
   if (!process.env.NATS_URL) {
     throw new Error('NATS_URL must be defined');
   }
+
   if (!process.env.NATS_CLUSTER_ID) {
     throw new Error('NATS_CLUSTER_ID must be defined');
+  }
+
+  if (!process.env.DB_URL) {
+    throw new Error('DB_URL must be defined');
   }
 
   try {
@@ -44,8 +50,7 @@ const start = async () => {
     const AppDataSource = new DataSource({
       type: 'postgres',
       port: 5432,
-      // url: `postgres://${process.env.POSTGRES_USER}:${process.env.POSTGRES_DB}@${process.env.POSTGRES_HOST}/${process.env.POSTGRES_DB}`,
-      url: `postgres://lpookmms:LGR429_tudJqbTLLgv7k4V-7fFStzj18@john.db.elephantsql.com/lpookmms`,
+      url: process.env.DB_URL,
       entities: [Cart],
       synchronize: true,
       ssl: false,
