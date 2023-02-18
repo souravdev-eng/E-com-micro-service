@@ -1,6 +1,8 @@
 import { Router, Response, Request, NextFunction } from 'express';
 import { NotFoundError, requireAuth, restrictTo } from '@ecom-micro/common';
 import { Product } from '../models/productModel';
+import { ProductDeletedPublisher } from '../events/publishers/productDeletedPublisher';
+import { natsWrapper } from '../natsWrapper';
 
 const router = Router();
 
@@ -14,6 +16,10 @@ router.delete(
     if (!product) {
       return next(new NotFoundError('Oops! Product is not found'));
     }
+
+    new ProductDeletedPublisher(natsWrapper.client).publish({
+      id: product.id,
+    });
 
     res.status(200).send({ product: null });
   }

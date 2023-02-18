@@ -143,7 +143,7 @@ describe('New Product', () => {
       .expect(403);
   });
 
-  it('should return 403 if user try to add new product', async () => {
+  it('should return 403 if normal user try to add new product', async () => {
     await request(app)
       .post('/api/product/new')
       .set('Cookie', global.signIn())
