@@ -1,6 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn, BaseEntity } from 'typeorm';
 
-@Entity('cart')
+@Entity()
 export class Cart extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;

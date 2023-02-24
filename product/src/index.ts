@@ -40,7 +40,6 @@ const start = async () => {
     process.on('SIGINT', () => natsWrapper.client.close());
     process.on('SIGTERM', () => natsWrapper.client.close());
 
-    new ProductCreatedListener(natsWrapper.client).listen();
     new SellerCreatedListener(natsWrapper.client).listen();
 
     mongoose

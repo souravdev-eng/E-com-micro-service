@@ -1,3 +1,4 @@
+import { Product } from './entity/Product';
 import 'express-async-errors';
 import express, { NextFunction, Request, Response } from 'express';
 import { NotFoundError, errorHandler, currentUser } from '@ecom-micro/common';
@@ -12,6 +13,11 @@ app.use(cors());
 app.use(currentUser);
 
 // routes
+
+app.get('/api/cart/all', async (req, res) => {
+  const product = await Product.find();
+  res.send(product);
+});
 
 app.use('*', (req: Request, res: Response, next: NextFunction) => {
   return next(new NotFoundError(`${req.originalUrl} is not find to this server!`));

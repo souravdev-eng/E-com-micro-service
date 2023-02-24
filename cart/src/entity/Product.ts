@@ -1,7 +1,8 @@
-import { Column, BaseEntity } from 'typeorm';
+import { Column, BaseEntity, Entity, PrimaryColumn } from 'typeorm';
 
+@Entity()
 export class Product extends BaseEntity {
-  @Column({ unique: true })
+  @PrimaryColumn()
   id: string;
 
   @Column()

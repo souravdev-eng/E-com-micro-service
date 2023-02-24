@@ -1,24 +1,11 @@
 import { DataSource } from 'typeorm';
 import app from './app';
 import { Cart } from './entity/Cart';
+import { Product } from './entity/Product';
+import { ProductCreatedListener } from './events/listeners/productCreatedListener';
 import { natsWrapper } from './natsWrapper';
 
 const start = async () => {
-  if (!process.env.POSTGRES_DB) {
-    throw new Error('Postgres is DB supported');
-  }
-
-  if (!process.env.POSTGRES_USER) {
-    throw new Error('Postgres is user is not found');
-  }
-  if (!process.env.POSTGRES_PASSWORD) {
-    throw new Error('Postgres is password is not found');
-  }
-
-  if (!process.env.POSTGRES_HOST) {
-    throw new Error('Postgres is host is not found');
-  }
-
   if (!process.env.NATS_CLIENT_ID) {
     throw new Error('NATS_CLIENT_ID must be defined');
   }
@@ -47,13 +34,17 @@ const start = async () => {
       process.exit();
     });
 
+    process.on('SIGINT', () => natsWrapper.client.close());
+    process.on('SIGTERM', () => natsWrapper.client.close());
+
+    new ProductCreatedListener(natsWrapper.client).listen();
+
     const AppDataSource = new DataSource({
       type: 'postgres',
       port: 5432,
       url: process.env.DB_URL,
-      entities: [Cart],
+      entities: [Cart, Product],
       synchronize: true,
-      ssl: false,
     });
 
     AppDataSource.initialize()
@@ -61,11 +52,11 @@ const start = async () => {
         console.log(`Cart Postgres Server Started...`);
       })
       .catch((err: any) => {
-        console.error(err);
+        console.error(err.message);
         process.exit();
       });
   } catch (error: any) {
-    console.log(error);
+    console.log('CART DB ERROR', error.message);
   }
   app.listen(3000, () => console.log(`Cart service running on PORT 3000....`));
 };

@@ -4,21 +4,6 @@ import { User } from './entity/User';
 import app from './app';
 
 const start = async () => {
-  if (!process.env.POSTGRES_DB) {
-    throw new Error('Postgres is DB supported');
-  }
-
-  if (!process.env.POSTGRES_USER) {
-    throw new Error('Postgres is user is not found');
-  }
-  if (!process.env.POSTGRES_PASSWORD) {
-    throw new Error('Postgres is password is not found');
-  }
-
-  if (!process.env.POSTGRES_HOST) {
-    throw new Error('Postgres is host is not found');
-  }
-
   if (!process.env.JWT_KEY) {
     throw new Error('JWT is not found');
   }
