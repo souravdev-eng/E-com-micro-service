@@ -17,7 +17,7 @@ export class Cart extends BaseEntity {
   @Column()
   price: number;
 
-  @Column()
+  @Column({ default: 1 })
   quantity: number;
 
   @Column()

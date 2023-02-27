@@ -17,18 +17,12 @@ export class ProductCreatedListener extends Listener<ProductCreatedEvent> {
         throw new BadRequestError('Oops! Product already exist on db');
       }
 
-      const product = Product.create({
-        id,
-        title,
-        image,
-        sellerId,
-        price,
-      });
-
+      const product = Product.create({ id, title, image, sellerId, price });
       await product.save();
+
       msg.ack();
     } catch (error: any) {
-      console.log('DATA saving error on Cart Service PRODUCT Table', error.message);
+      throw new BadRequestError('Cart product creation failed!');
     }
   }
 }

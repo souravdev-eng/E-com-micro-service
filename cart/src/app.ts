@@ -1,8 +1,10 @@
-import { Product } from './entity/Product';
 import 'express-async-errors';
-import express, { NextFunction, Request, Response } from 'express';
-import { NotFoundError, errorHandler, currentUser } from '@ecom-micro/common';
 import cors from 'cors';
+import { Product } from './entity/Product';
+import { NotFoundError, errorHandler, currentUser } from '@ecom-micro/common';
+import express, { NextFunction, Request, Response } from 'express';
+import cookieSession from 'cookie-session';
+import { newCartRoute } from './routes/newCart';
 
 const app = express();
 
@@ -10,9 +12,17 @@ const app = express();
 app.set('trust proxy', true); //? because we transfer our request via ingress proxy
 app.use(express.json());
 app.use(cors());
+app.use(
+  cookieSession({
+    signed: false,
+    secure: process.env.NODE_ENV !== 'test',
+  })
+);
+
 app.use(currentUser);
 
 // routes
+app.use(newCartRoute);
 
 app.get('/api/cart/all', async (req, res) => {
   const product = await Product.find();
