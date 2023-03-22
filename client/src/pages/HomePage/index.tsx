@@ -1,16 +1,17 @@
 import { useEffect } from 'react';
-import { ProductList } from '../../components';
 import './home.style.scss';
-import { useAppDispatch, useAppSelector } from '../../hooks/useAppRedux';
+import { ProductList } from '../../components';
 import { getProductList } from '../../store/actions/product.action';
+import { useAppDispatch, useAppSelector } from '../../hooks/useAppRedux';
+import productList from '../../data/product.data.json'
 
 const HomePage = () => {
   const dispatch = useAppDispatch();
-  const { productList } = useAppSelector((state) => state.product);
+  // const { productList } = useAppSelector((state) => state.product);
 
-  useEffect(() => {
-    dispatch(getProductList());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getProductList());
+  // }, [dispatch]);
 
   return (
     <div className='homeContainer'>
