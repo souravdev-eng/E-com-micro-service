@@ -34,6 +34,5 @@ export const useStyles = makeStyles({
   },
   descriptionContainer: {
     width: '800px',
-    // border: '1px solid #555',
   },
 });
