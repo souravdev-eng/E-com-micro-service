@@ -35,4 +35,44 @@ export const useStyles = makeStyles({
   descriptionContainer: {
     width: '800px',
   },
+  priceContainer: {
+    display: 'flex',
+    gap: '20px',
+    margin: '2px 0px', alignItems: 'center'
+  },
+  box: {
+    border: '1px solid #F0F0F0',
+    padding: "10px 15px",
+    cursor: 'pointer'
+  },
+  button: {
+    width: '200px',
+    height: '55px',
+    justifyContent: 'center',
+    alignItems: 'center',
+    display: 'flex',
+    cursor: 'pointer'
+  },
+  buttonRed: {
+    backgroundColor: '#E73C17'
+  },
+  buttonRedOutline: {
+    border: '1px solid #E73C17'
+  },
+  buttonText: {
+    fontSize: '16px',
+    fontWeight: 500,
+  },
+  whiteText: {
+    color: '#fff',
+    textTransform: 'uppercase'
+  },
+  redText: {
+    color: '#E73C17',
+    textTransform: 'uppercase'
+  },
+  divider: {
+    border: '1px solid #F0F0F0',
+    margin: '8px 0', width: '60%'
+  }
 });
