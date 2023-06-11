@@ -2,10 +2,7 @@ FROM node:alpine
 WORKDIR '/app'
 
 COPY ./package.json .
-
-RUN yarn add glob rimraf
-RUN yarn --only=prod
-
+RUN npm install 
 COPY . .
 
-CMD [ "npm","start"]
+CMD [ "npm","dev"]

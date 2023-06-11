@@ -1,9 +1,7 @@
-import React from 'react';
-import { MemoryRouter } from 'react-router-dom';
 import { render, screen, act, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import LoginPage from '..';
-import Button from '../../../../components/Button';
+import TestWrapper from './../../../../../tests/TestWrapper';
 
 const typeIntoFrom = async ({ email, password }: { email?: string; password?: string }) => {
   const emailInputElement = (await screen.findByPlaceholderText(
@@ -37,9 +35,9 @@ const typeIntoFrom = async ({ email, password }: { email?: string; password?: st
 
 beforeEach(() => {
   render(
-    <MemoryRouter>
+    <TestWrapper>
       <LoginPage />
-    </MemoryRouter>
+    </TestWrapper>
   );
 });
 
