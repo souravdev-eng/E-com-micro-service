@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { FC, Fragment } from 'react';
 import { Box, Rating } from '@mui/material';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 import ProductDetails from '../../data/productDetails.json';
 import { useStyles } from './styles';
 import { Typography } from '@mui/material';

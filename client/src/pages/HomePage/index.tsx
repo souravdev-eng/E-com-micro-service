@@ -1,12 +1,12 @@
-import { useEffect } from 'react';
+
 import './home.style.scss';
 import { ProductList } from '../../components';
-import { getProductList } from '../../store/actions/product.action';
-import { useAppDispatch, useAppSelector } from '../../hooks/useAppRedux';
+// import { getProductList } from '../../store/actions/product.action';
+// import { useAppDispatch } from '../../hooks/useAppRedux';
 import productList from '../../data/product.data.json'
 
 const HomePage = () => {
-  const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
   // const { productList } = useAppSelector((state) => state.product);
 
   // useEffect(() => {

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAppSelector } from '../../hooks/useAppRedux';
 import { NAV_DATA } from '../../data/navdata';
