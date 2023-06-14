@@ -4,7 +4,7 @@
   display: flex;
   align-self: center;
   justify-content: center;
-  margin-top: 2.8rem;
+  margin-top: 2rem;
   min-width: 100%;
 
   .form {
@@ -14,16 +14,17 @@
     flex-direction: column;
     align-items: center;
     width: 42%;
-    height: 54rem;
+    // height: 12rem;
 
     &__title {
-      font-size: 2.2rem;
+      font-size: 1.2rem;
       color: $Color__Blue-darkest;
       margin: 2.6rem 0rem;
     }
+    
     &__error-msg {
       color: red;
-      font-size: 1.4rem;
+      font-size: 0.8rem;
       font-weight: 500;
       text-align: center;
       align-self: flex-start;
@@ -33,12 +34,12 @@
 
     &__text-input {
       width: 70%;
-      height: 5.2rem;
+      height: 1.2rem;
       margin: 1.2rem 0rem;
       padding: 0rem 1rem;
       border-radius: 0.5rem;
       border: 0.5px solid rgba(50, 50, 93, 0.25);
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       color: #555;
       transition: all 0.2s ease-in-out;
 

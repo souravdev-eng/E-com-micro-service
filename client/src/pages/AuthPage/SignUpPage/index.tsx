@@ -43,61 +43,81 @@ const SignUpPage = () => {
         }}
         validationSchema={signupValidationSchema}>
         <>
-          <Form className='form'>
-            <h3 className='form__title'>Create new account</h3>
+          <Form className='w-1/3 shadow-xl px-10 pt-4 py-10 shadow-slate-300 rounded-lg'>
+            <h3 className='text-2xl font-semibold text-blue-600 mt-4 mb-2 text-center'>
+              Create new account
+            </h3>
             {error &&
               error.map((el: any, idx: number) => (
                 <div className='form__error-msg' key={idx}>
                   {el.message}
                 </div>
               ))}
-            <Field
-              id='name'
-              name='name'
-              placeholder='Your name'
-              type='text'
-              className='form__text-input'
-            />
-            <ErrorMessage name='name'>
-              {(msg) => <div className='form__error-msg'>{msg}</div>}
-            </ErrorMessage>
-            <Field
-              id='email'
-              name='email'
-              placeholder='Your email'
-              type='email'
-              className='form__text-input'
-            />
-            <ErrorMessage name='email'>
-              {(msg) => <div className='form__error-msg'>{msg}</div>}
-            </ErrorMessage>
-            <Field
-              id='password'
-              name='password'
-              placeholder='Password'
-              type='password'
-              className='form__text-input'
-            />
-            <ErrorMessage name='password'>
-              {(msg) => <span className='form__error-msg'>{msg}</span>}
-            </ErrorMessage>
-            <Field
-              id='passwordConform'
-              name='passwordConform'
-              placeholder='Password again'
-              type='password'
-              className='form__text-input'
-            />
-            <ErrorMessage name='passwordConform'>
-              {(msg) => <div className='form__error-msg'>{msg}</div>}
-            </ErrorMessage>
+            <div className='flex flex-col'>
+              <Field
+                id='name'
+                name='name'
+                placeholder='Your name'
+                type='text'
+                className='rounded-md text-lg h-16 border border-gray-200 p-4 w-3/2 mt-6 focus:bg-blue-100 hover:text-black-500 focus:outline-none focus:placeholder:text-blue-500'
+              />
+              <ErrorMessage name='name'>
+                {(msg) => (
+                  <div className='text-base text-red-500 font-semibold ml-15 self-start my-2'>
+                    {msg}
+                  </div>
+                )}
+              </ErrorMessage>
+              <Field
+                id='email'
+                name='email'
+                placeholder='Your email'
+                type='email'
+                className='rounded-md text-lg h-16 border border-gray-200 p-4 w-3/2 mt-6 focus:bg-blue-100 hover:text-black-500 focus:outline-none focus:placeholder:text-blue-500'
+              />
+              <ErrorMessage name='email'>
+                {(msg) => (
+                  <div className='text-base text-red-500 font-semibold ml-15 self-start my-2'>
+                    {msg}
+                  </div>
+                )}
+              </ErrorMessage>
+              <Field
+                id='password'
+                name='password'
+                placeholder='Password'
+                type='password'
+                className='rounded-md text-lg h-16 border border-gray-200 p-4 w-3/2 mt-6 focus:bg-blue-100 hover:text-black-500 focus:outline-none focus:placeholder:text-blue-500'
+              />
+              <ErrorMessage name='password'>
+                {(msg) => (
+                  <div className='text-base text-red-500 font-semibold ml-15 self-start my-2'>
+                    {msg}
+                  </div>
+                )}
+              </ErrorMessage>
+              <Field
+                id='passwordConform'
+                name='passwordConform'
+                placeholder='Password again'
+                type='password'
+                className='rounded-md text-lg h-16 border border-gray-200 p-4 w-3/2 mt-6 focus:bg-blue-100 hover:text-black-500 focus:outline-none focus:placeholder:text-blue-500'
+              />
+              <ErrorMessage name='passwordConform'>
+                {(msg) => (
+                  <div className='text-base text-red-500 font-semibold ml-15 self-start my-2'>
+                    {msg}
+                  </div>
+                )}
+              </ErrorMessage>
+            </div>
             <div className='form__button-wrapper'>
               <Button title='Login' />
             </div>
-            <p className='form__link'>
+            <p className='text-base my-6 text-center'>
               Don't have an account?{' '}
-              <Link className='form__link--text' to='/auth/login'>
-                <span className='form__link--text--blue'>Click to login</span>
+              <Link to='/auth/login'>
+                <span className='text-base my-6 text-blue-500 font-semibold'>Click to login</span>
               </Link>
             </p>
           </Form>
