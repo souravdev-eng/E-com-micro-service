@@ -14,9 +14,9 @@ const HomePage = () => {
   // }, [dispatch]);
 
   return (
-    <div className='homeContainer'>
+    <div className='flex px-6'>
       <ProductList title='Top Product' data={productList} />
-      <ProductList title='Best Seller' data={productList} />
+      {/* <ProductList title='Best Seller' data={productList} /> */}
     </div>
   );
 };
