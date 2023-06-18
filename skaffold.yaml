@@ -23,15 +23,15 @@ build:
       sync:
         manual:
           - src: src/**/*.ts
-            dest: .
+            dest: app/dist
           - src: src/**/*.tsx
-            dest: .
+            dest: app/dist
           - src: src/**/*.css
-            dest: .
+            dest: app/dist
           - src: src/**/*.scss
-            dest: .
+            dest: app/dist
           - src: src/**/*.json
-            dest: .
+            dest: app/dist
       docker:
         dockerfile: Dockerfile
 

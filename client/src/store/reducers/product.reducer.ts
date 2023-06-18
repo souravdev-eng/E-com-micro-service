@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getProductList } from '../actions/product.action';
+import { getProductDetail, getProductList } from '../actions/product.action';
 
 interface ProductProps {
   loading: boolean;
@@ -13,6 +13,7 @@ interface ProductProps {
     sellerId: string;
     id: string;
   }[];
+  productDetail: any;
   error: any;
 }
 
@@ -20,6 +21,7 @@ const initialState = {
   loading: false,
   productList: [],
   error: [],
+  productDetail: null
 } as ProductProps;
 
 const productSlice = createSlice({
@@ -35,6 +37,19 @@ const productSlice = createSlice({
       state.productList = payload;
     });
     builder.addCase(getProductList.rejected, (state, { payload }) => {
+      state.loading = false;
+      state.error = payload;
+    });
+
+    // GET PRODUCT DETAILS BY ID
+    builder.addCase(getProductDetail.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(getProductDetail.fulfilled, (state, { payload }) => {
+      state.loading = false;
+      state.productDetail = payload;
+    });
+    builder.addCase(getProductDetail.rejected, (state, { payload }) => {
       state.loading = false;
       state.error = payload;
     });

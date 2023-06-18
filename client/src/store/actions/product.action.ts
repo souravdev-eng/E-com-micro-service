@@ -14,3 +14,16 @@ export const getProductList = createAsyncThunk('get/allproduct', async (_, { rej
     throw rejectWithValue(error.response.data.errors);
   }
 });
+
+export const getProductDetail = createAsyncThunk('get/productById', async ({ id }: { id: string }, { rejectWithValue }) => {
+  try {
+    const { data } = await axios.get(`${BASE_URL}/product/${id}`, {
+      headers: {
+        Accept: 'application/json',
+      },
+    });
+    return data;
+  } catch (error: any) {
+    throw rejectWithValue(error.response.data.errors);
+  }
+});
