@@ -29,7 +29,7 @@ router.post(
       id: product.id,
       title: product.title,
       price: product.price,
-      productUrl: product.image,
+      image: product.image,
       sellerId: product.sellerId,
     });
 

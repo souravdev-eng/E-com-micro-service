@@ -12,7 +12,7 @@ const CustomerReturnCard = () => {
           <h4 className={styles.headingPrice}>7956</h4>
           <div className={styles.growthWrapper}>
             <GrowthChartSm value={16} />
-            <span className={styles.price}>6759</span>
+            <span className={styles.price}>6,759</span>
           </div>
         </div>
         <div className={styles.chart}></div>

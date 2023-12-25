@@ -1,17 +1,12 @@
-# Use the official Go image as the base image
-FROM golang:alpine
+FROM node:alpine
 
-WORKDIR /app
+WORKDIR '/app'
 
-COPY go.mod ./
-COPY go.sum ./
+COPY ./package.json .
 
-RUN go mod download
+RUN yarn add glob rimraf
+RUN yarn --only=prod
 
-COPY . ./
+COPY . .
 
-RUN go build -o /go-docker-demo
-
-EXPOSE 3000
-
-CMD [ "/go-docker-demo" ]
+CMD [ "npm","start"]

@@ -1,8 +1,8 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAppSelector } from '../../hooks/useAppRedux';
 import { NAV_DATA } from '../../data/navdata';
 import ProfileTab from '../ProfileTab';
+import LocalMallIcon from '@mui/icons-material/LocalMall';
 import './navbar.style.scss';
 
 const Navbar = () => {
@@ -24,6 +24,11 @@ const Navbar = () => {
               </li>
             );
           })}
+          <li>
+            <Link to={`/cart`} className='nav__list--link'>
+              <LocalMallIcon />
+            </Link>
+          </li>
           {user === null ? (
             <li>
               <Link to={'/auth/login'}>
@@ -31,9 +36,11 @@ const Navbar = () => {
               </Link>
             </li>
           ) : (
-            <li>
-              <ProfileTab />
-            </li>
+            <>
+              <li>
+                <ProfileTab />
+              </li>
+            </>
           )}
         </ul>
       </nav>

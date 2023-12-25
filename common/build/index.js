@@ -28,4 +28,8 @@ __exportStar(require("./middleware/currentUser"), exports);
 __exportStar(require("./events/baseListener"), exports);
 __exportStar(require("./events/basePublisher"), exports);
 __exportStar(require("./events/productCreatedEvent"), exports);
+__exportStar(require("./events/productUpdatedEvent"), exports);
+__exportStar(require("./events/productDeletedEvent"), exports);
+__exportStar(require("./events/sellerCreatedEvent"), exports);
+__exportStar(require("./events/sellerUpdatedEvent"), exports);
 __exportStar(require("./types/subjects"), exports);

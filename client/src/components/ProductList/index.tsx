@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import ProductCard from '../ProductCard';
-import './product-list.style.scss';
+// import './product-list.style.scss';
 
 interface CardListProps {
   title: string;
@@ -18,14 +18,19 @@ interface CardListProps {
 
 const ProductList: FC<CardListProps> = ({ title, data }) => {
   return (
-    <div className='listContainer'>
-      <h2 className='listContainer__title'>{title}</h2>
-      <div className='listContainer__grid'>
+    <>
+      <div className='flex flex-wrap w-full items-center justify-start'>
         {data.map((el) => (
           <ProductCard key={el.id} {...el} />
         ))}
       </div>
-    </div>
+    </>
+    // <div className='listContainer'>
+    //   <h2 className='listContainer__title'>{title}</h2>
+    //   <div className='listContainer__grid'>
+
+    //   </div>
+    // </div>
   );
 };
 

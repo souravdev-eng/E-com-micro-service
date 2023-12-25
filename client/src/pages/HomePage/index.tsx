@@ -1,8 +1,9 @@
-import { useEffect } from 'react';
-import { ProductList } from '../../components';
 import './home.style.scss';
-import { useAppDispatch, useAppSelector } from '../../hooks/useAppRedux';
+import { ProductList } from '../../components';
 import { getProductList } from '../../store/actions/product.action';
+import { useAppDispatch, useAppSelector } from '../../hooks/useAppRedux';
+// import productList from '../../data/product.data.json';
+import { useEffect } from 'react';
 
 const HomePage = () => {
   const dispatch = useAppDispatch();
@@ -13,7 +14,7 @@ const HomePage = () => {
   }, [dispatch]);
 
   return (
-    <div className='homeContainer'>
+    <div className='flex px-6'>
       <ProductList title='Top Product' data={productList} />
       <ProductList title='Best Seller' data={productList} />
     </div>

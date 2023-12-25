@@ -8,7 +8,7 @@ import { User } from '../entity/User';
 
 const signInToken = (id: string, email: string, role: string) => {
   return jwt.sign({ id, email, role }, process.env.JWT_KEY!, {
-    expiresIn: process.env.JWT_EXPIRE_IN || '30d',
+    expiresIn: '90d',
   });
 };
 

@@ -4,10 +4,12 @@ import { signUpValidation } from '../validation/newUserValidation';
 import { requestValidation, BadRequestError } from '@ecom-micro/common';
 
 import { User } from '../entity/User';
+import { SellerCreatedPublisher } from '../events/publishers/sellerCreatedPublisher';
+import { natsWrapper } from '../natsWrapper';
 
 const signInToken = (id: string, email: string, role: string) => {
   return jwt.sign({ id, email, role }, process.env.JWT_KEY!, {
-    expiresIn: process.env.JWT_EXPIRE_IN || '30d',
+    expiresIn: '90d',
   });
 };
 
@@ -33,6 +35,14 @@ router.post(
     });
 
     await user.save();
+
+    if (user.role === 'seller') {
+      new SellerCreatedPublisher(natsWrapper.client).publish({
+        id: user.id,
+        email: user.email,
+        role: user.role,
+      });
+    }
 
     const token = signInToken(user.id, user.email, user.role);
     // store the token in the session
