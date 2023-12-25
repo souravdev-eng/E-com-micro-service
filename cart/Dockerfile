@@ -1,7 +1,17 @@
-FROM golang:1.12.0-alpine3.9
-RUN mkdir /app
-ADD . /app
-WORKDIR /app
-RUN go build -o main .
+# Use the official Go image as the base image
+FROM golang:alpine
 
-CMD [ "/app/main"]
+WORKDIR /app
+
+COPY go.mod ./
+COPY go.sum ./
+
+RUN go mod download
+
+COPY . ./
+
+RUN go build -o /go-docker-demo
+
+EXPOSE 3000
+
+CMD [ "/go-docker-demo" ]

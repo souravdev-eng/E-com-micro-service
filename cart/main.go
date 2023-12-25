@@ -12,5 +12,5 @@ func main() {
 	fmt.Println("Server is getting started...")
 	r := routes.Router()
 
-	log.Fatal(http.ListenAndServe(":4000", r))
+	log.Fatal(http.ListenAndServe(":3000", r))
 }

@@ -3,3 +3,4 @@ node_modules
 icon.md
 rabbitMQ
 cart1
+/auth/app
