@@ -1,14 +1,11 @@
-FROM node:alpine as build
+FROM node:alpine
 
-WORKDIR /app
+WORKDIR '/app'
 
-RUN npm install -g npm@9.7.1
+COPY ./package*.json .
 
-COPY package.json .
-RUN npm i --legacy-peer-deps
+RUN npm install 
+
 COPY . .
-RUN npm run build
 
-FROM nginx
-COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
-COPY --from=build /app/dist /usr/share/nginx/html
+CMD [ "npm", "run", "start"]

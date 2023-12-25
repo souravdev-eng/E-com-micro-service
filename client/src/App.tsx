@@ -1,55 +1,26 @@
-import { useEffect } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
 
-import Navbar from './components/Navbar';
-import HomePage from './pages/HomePage';
-import ProductDetail from './pages/ProductDetails';
-import LoginPage from './pages/AuthPage/LoginPage';
-import SignUpPage from './pages/AuthPage/SignUpPage';
-
-import { useAppDispatch, useAppSelector } from './hooks/useAppRedux';
-import { currentUserAction } from './store/actions/user.action';
-
-const App = () => {
-  const dispatch = useAppDispatch();
-  const { user, loading, error } = useAppSelector((state) => state.users);
-
-  useEffect(() => {
-    dispatch(currentUserAction());
-  }, [dispatch]);
-
-  const Protected = ({ isSignedIn, children }: any) => {
-    if (isSignedIn === null) {
-      return <Navigate to='/auth/login' replace />;
-    }
-    return children;
-  };
-
+function App() {
   return (
-    <>
-      <Navbar />
-      <Routes>
-        <Route path='/auth/login' element={<LoginPage />} />
-        <Route path='/auth/signup' element={<SignUpPage />} />
-        <Route
-          path='/'
-          element={
-            <Protected isSignedIn={user}>
-              <HomePage />
-            </Protected>
-          }
-        />
-        <Route
-          path='/product/:id'
-          element={
-            <Protected isSignedIn={user}>
-              <ProductDetail />
-            </Protected>
-          }
-        />
-      </Routes>
-    </>
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.tsx</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
   );
-};
+}
 
 export default App;
